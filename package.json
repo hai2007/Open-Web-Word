@@ -1,0 +1,21 @@
+{
+  "name": "open-web-word",
+  "version": "0.1.0-alpha.0",
+  "description": "✍️ Web version of the extensible text editor.",
+  "main": "dist/open-web-word.min.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hai2007/Open-Web-Word.git"
+  },
+  "keywords": [
+    "web",
+    "word"
+  ],
+  "author": "你好2007",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hai2007/Open-Web-Word/issues"
+  },
+  "homepage": "https://github.com/hai2007/Open-Web-Word#readme"
+}
