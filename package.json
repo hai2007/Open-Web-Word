@@ -3,7 +3,11 @@
   "version": "0.1.0-alpha.0",
   "description": "✍️ Web version of the extensible text editor.",
   "main": "dist/open-web-word.min.js",
-  "scripts": {},
+  "scripts": {
+    "build": "etcpack_pkg --config etcpack.prod.js && npm run min && nodejs --config ./nodejs.config.js",
+    "dev": "etcpack_dev --config etcpack.dev.js",
+    "min": "uglifyjs ./dist/open-web-word.js -m -o ./dist/open-web-word.min.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hai2007/Open-Web-Word.git"
@@ -17,5 +21,29 @@
   "bugs": {
     "url": "https://github.com/hai2007/Open-Web-Word/issues"
   },
-  "homepage": "https://github.com/hai2007/Open-Web-Word#readme"
+  "homepage": "https://github.com/hai2007/Open-Web-Word#readme",
+  "dependencies": {
+    "@hai2007/browser": "^0.2.0",
+    "@hai2007/polyfill": "^0.2.0",
+    "@hai2007/style": "^0.3.0",
+    "@hai2007/tool": "^1.1.0",
+    "nefbl": "^0.2.6",
+    "sprout-ui": "^0.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/plugin-proposal-decorators": "^7.16.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.16.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@etcpack/commonjs-plug": "^0.1.0",
+    "@etcpack/plain-loader": "^0.1.0",
+    "@etcpack/scss-loader": "^0.1.2",
+    "@hai2007/nodejs": "^2.2.0",
+    "etcpack": "^0.5.4",
+    "terser": "^5.10.0",
+    "tslib": "^2.3.1",
+    "uglify-js": "^3.11.6"
+  }
 }
