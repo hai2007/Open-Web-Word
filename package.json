@@ -23,12 +23,13 @@
   },
   "homepage": "https://github.com/hai2007/Open-Web-Word#readme",
   "dependencies": {
+    "@hai2007/algorithm": "^0.7.3",
     "@hai2007/browser": "^0.2.0",
     "@hai2007/polyfill": "^0.2.0",
     "@hai2007/style": "^0.3.0",
     "@hai2007/tool": "^1.1.0",
     "nefbl": "^0.2.6",
-    "sprout-ui": "^0.2.1"
+    "sprout-ui": "^0.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

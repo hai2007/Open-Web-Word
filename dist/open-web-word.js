@@ -9,7 +9,7 @@
  * Copyright (c) 2021-2022 hai2007 走一步，再走一步。
  * Released under the MIT license
  *
- * Date:Sat Jan 01 2022 12:32:19 GMT+0800 (中国标准时间)
+ * Date:Sat Jan 01 2022 14:57:17 GMT+0800 (中国标准时间)
  */
 /******/
 /******/  // EtcPack Bootstrap/******/  
@@ -2801,13 +2801,19 @@ var Module=__etcpack__scope_args__.Module;
 __etcpack__scope_args__=window.__etcpack__getBundle('19');
 var AppComponent =__etcpack__scope_args__.default;
  // 指令
-// import uiBind from 'sprout-ui/nefbl/directive/ui-bind'
-// import uiModel from 'sprout-ui/nefbl/directive/ui-model'
-// import uiOn from 'sprout-ui/nefbl/directive/ui-on'
+
+__etcpack__scope_args__=window.__etcpack__getBundle('22');
+var uiBind =__etcpack__scope_args__.default;
+
+__etcpack__scope_args__=window.__etcpack__getBundle('23');
+var uiModel =__etcpack__scope_args__.default;
+
+__etcpack__scope_args__=window.__etcpack__getBundle('25');
+var uiOn =__etcpack__scope_args__.default;
+
 
 var _class = (_dec = Module({
-  declarations: [AppComponent // uiBind, uiModel, uiOn
-  ],
+  declarations: [AppComponent, uiBind, uiModel, uiOn],
   imports: [],
   exports: [],
   bootstrap: AppComponent
@@ -2875,6 +2881,504 @@ window.__etcpack__bundleSrc__['21']=function(){
     var __etcpack__scope_bundle__={};
     var __etcpack__scope_args__;
     __etcpack__scope_bundle__.default= ""
+  
+    return __etcpack__scope_bundle__;
+}
+
+/*************************** [bundle] ****************************/
+// Original file:./node_modules/sprout-ui/nefbl/directive/ui-bind.ts
+/*****************************************************************/
+window.__etcpack__bundleSrc__['22']=function(){
+    var __etcpack__scope_bundle__={};
+    var __etcpack__scope_args__;
+    var _dec, _class2;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+__etcpack__scope_args__=window.__etcpack__getBundle('2');
+var Directive=__etcpack__scope_args__.Directive;
+
+__etcpack__scope_args__=window.__etcpack__getBundle('7');
+var isString=__etcpack__scope_args__.isString;
+
+
+var update = function update(el, binding) {
+  // 如果有type表示给属性赋值
+  if (isString(binding.type) && binding.type.length > 0) {
+    if (el.getAttribute(binding.type) != binding.value) {
+      el.setAttribute(binding.type, binding.value);
+    }
+  } // 否则是设置内容或值
+  else {
+    if (el.value != binding.value || el.textContent != binding.value) {
+      el.value = el.textContent = binding.value;
+    }
+  }
+};
+
+var _class = (_dec = Directive({
+  selector: "ui-bind"
+}), _dec(_class2 = /*#__PURE__*/function () {
+  function _class2() {
+    _classCallCheck(this, _class2);
+  }
+
+  _createClass(_class2, [{
+    key: "$inserted",
+    value: function $inserted(el, binding) {
+      update(el, binding);
+    }
+  }, {
+    key: "$update",
+    value: function $update(el, binding) {
+      update(el, binding);
+    }
+  }]);
+
+  return _class2;
+}()) || _class2);
+
+__etcpack__scope_bundle__.default=_class;
+  
+    return __etcpack__scope_bundle__;
+}
+
+/*************************** [bundle] ****************************/
+// Original file:./node_modules/sprout-ui/nefbl/directive/ui-model.ts
+/*****************************************************************/
+window.__etcpack__bundleSrc__['23']=function(){
+    var __etcpack__scope_bundle__={};
+    var __etcpack__scope_args__;
+    var _dec, _class2;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+__etcpack__scope_args__=window.__etcpack__getBundle('2');
+var Directive=__etcpack__scope_args__.Directive;
+var setValue=__etcpack__scope_args__.setValue;
+
+__etcpack__scope_args__=window.__etcpack__getBundle('24');
+var xhtml =__etcpack__scope_args__.default;
+
+
+var _class = (_dec = Directive({
+  selector: "ui-model"
+}), _dec(_class2 = /*#__PURE__*/function () {
+  function _class2() {
+    _classCallCheck(this, _class2);
+  }
+
+  _createClass(_class2, [{
+    key: "$inserted",
+    value: function $inserted(el, binding) {
+      el.value = binding.value;
+      xhtml.bind(el, 'input', function () {
+        setValue(binding.target, "." + binding.exp, el.value);
+      });
+    }
+  }, {
+    key: "$update",
+    value: function $update(el, binding) {
+      el.value = binding.value;
+    }
+  }]);
+
+  return _class2;
+}()) || _class2);
+
+__etcpack__scope_bundle__.default=_class;
+  
+    return __etcpack__scope_bundle__;
+}
+
+/*************************** [bundle] ****************************/
+// Original file:./node_modules/@hai2007/browser/xhtml.js
+/*****************************************************************/
+window.__etcpack__bundleSrc__['24']=function(){
+    var __etcpack__scope_bundle__={};
+    var __etcpack__scope_args__;
+    /*!
+ * 🌐 - 提供常用的DOM操作方法
+ * https://github.com/hai2007/browser.js/blob/master/xhtml.js
+ *
+ * author hai2007 < https://hai2007.gitee.io/sweethome >
+ *
+ * Copyright (c) 2021-present hai2007 走一步，再走一步。
+ * Released under the MIT license
+ */
+
+// 命名空间路径
+var namespace = {
+    svg: "http://www.w3.org/2000/svg",
+    xhtml: "http://www.w3.org/1999/xhtml",
+    xlink: "http://www.w3.org/1999/xlink",
+    xml: "http://www.w3.org/XML/1998/namespace",
+    xmlns: "http://www.w3.org/2000/xmlns/"
+};
+
+/**
+ * 结点操作补充
+ */
+
+__etcpack__scope_bundle__.default= {
+
+    // 阻止冒泡
+    "stopPropagation": function (event) {
+        event = event || window.event;
+        if (event.stopPropagation) { //这是其他非IE浏览器
+            event.stopPropagation();
+        } else {
+            event.cancelBubble = true;
+        }
+    },
+
+    // 阻止默认事件
+    "preventDefault": function (event) {
+        event = event || window.event;
+        if (event.preventDefault) {
+            event.preventDefault();
+        } else {
+            event.returnValue = false;
+        }
+    },
+
+    // 判断是否是结点
+    "isNode": function (param) {
+        return param && (param.nodeType === 1 || param.nodeType === 9 || param.nodeType === 11);
+    },
+
+    // 绑定事件
+    "bind": function (dom, eventType, callback) {
+
+        if (dom.constructor === Array || dom.constructor === NodeList || dom.constructor === HTMLCollection) {
+            for (var i = 0; i < dom.length; i++) {
+                this.bind(dom[i], eventType, callback);
+            }
+            return;
+        }
+
+        if (window.attachEvent)
+            dom.attachEvent("on" + eventType, callback);
+        else
+            dom.addEventListener(eventType, callback, false);
+    },
+    // 去掉绑定事件
+    "unbind": function (dom, eventType, handler) {
+
+        if (dom.constructor === Array || dom.constructor === NodeList || dom.constructor === HTMLCollection) {
+            for (var i = 0; i < dom.length; i++) {
+                this.unbind(dom[i], eventType, handler);
+            }
+            return;
+        }
+
+        if (window.detachEvent)
+            dom.detachEvent('on' + eventType, handler);
+        else
+            dom.removeEventListener(eventType, handler, false);
+
+    },
+
+    // 在当前上下文context上查找结点
+    // selectFun可选，返回boolean用以判断当前面对的结点是否保留
+    "find": function (context, selectFun, tagName) {
+        if (!this.isNode(context)) return [];
+        var nodes = context.getElementsByTagName(tagName || '*');
+        var result = [];
+        for (var i = 0; i < nodes.length; i++) {
+            if (this.isNode(nodes[i]) && (typeof selectFun != "function" || selectFun(nodes[i])))
+                result.push(nodes[i]);
+        }
+        return result;
+    },
+
+    // 寻找当前结点的孩子结点
+    // selectFun可选，返回boolean用以判断当前面对的结点是否保留
+    "children": function (dom, selectFun) {
+        var nodes = dom.childNodes;
+        var result = [];
+        for (var i = 0; i < nodes.length; i++) {
+            if (this.isNode(nodes[i]) && (typeof selectFun != "function" || selectFun(nodes[i])))
+                result.push(nodes[i]);
+        }
+        return result;
+    },
+
+    // 判断结点是否有指定class
+    // clazzs可以是字符串或数组字符串
+    // notStrict可选，boolean值，默认false表示结点必须包含全部class,true表示至少包含一个即可
+    "hasClass": function (dom, clazzs, notStrict) {
+        if (clazzs.constructor !== Array) clazzs = [clazzs];
+
+        var class_str = " " + (dom.getAttribute('class') || "") + " ";
+        for (var i = 0; i < clazzs.length; i++) {
+            if (class_str.indexOf(" " + clazzs[i] + " ") >= 0) {
+                if (notStrict) return true;
+            } else {
+                if (!notStrict) return false;
+            }
+        }
+        return true;
+    },
+
+    // 删除指定class
+    "removeClass": function (dom, clazz) {
+        var oldClazz = " " + (dom.getAttribute('class') || "") + " ";
+        var newClazz = oldClazz.replace(" " + clazz.trim() + " ", " ");
+        dom.setAttribute('class', newClazz.trim());
+    },
+
+    // 添加指定class
+    "addClass": function (dom, clazz) {
+        if (this.hasClass(dom, clazz)) return;
+        var oldClazz = dom.getAttribute('class') || "";
+        dom.setAttribute('class', oldClazz + " " + clazz);
+    },
+
+    // 字符串变成结点
+    // isSvg可选，boolean值，默认false表示结点是html，为true表示svg类型
+    "toNode": function (template, isSvg) {
+        var frame;
+
+        // html和svg上下文不一样
+        if (isSvg) frame = document.createElementNS(namespace.svg, 'svg');
+        else {
+
+            var frameTagName = 'div';
+
+            // 大部分的标签可以直接使用div作为容器
+            // 部分特殊的需要特殊的容器标签
+
+            if (/^<tr[> ]/.test(template)) {
+
+                frameTagName = "tbody";
+
+            } else if (/^<th[> ]/.test(template) || /^<td[> ]/.test(template)) {
+
+                frameTagName = "tr";
+
+            } else if (/^<thead[> ]/.test(template) || /^<tbody[> ]/.test(template)) {
+
+                frameTagName = "table";
+
+            }
+
+            frame = document.createElement(frameTagName);
+        }
+
+        // 低版本浏览器svg没有innerHTML，考虑是vue框架中，没有补充
+        frame.innerHTML = template;
+
+        var childNodes = frame.childNodes;
+        for (var i = 0; i < childNodes.length; i++) {
+            if (this.isNode(childNodes[i])) return childNodes[i];
+        }
+    },
+
+    // 主动触发事件
+    "trigger": function (dom, eventType) {
+
+        //创建event的对象实例。
+        if (document.createEventObject) {
+            // IE浏览器支持fireEvent方法
+            dom.fireEvent('on' + eventType, document.createEventObject());
+        }
+
+        // 其他标准浏览器使用dispatchEvent方法
+        else {
+            var _event = document.createEvent('HTMLEvents');
+            // 3个参数：事件类型，是否冒泡，是否阻止浏览器的默认行为
+            _event.initEvent(eventType, true, false);
+            dom.dispatchEvent(_event);
+        }
+
+    },
+
+    // 获取样式
+    "getStyle": function (dom, name) {
+        // 获取结点的全部样式
+        var allStyle = document.defaultView && document.defaultView.getComputedStyle ?
+            document.defaultView.getComputedStyle(dom, null) :
+            dom.currentStyle;
+
+        // 如果没有指定属性名称，返回全部样式
+        return typeof name === 'string' ?
+            allStyle.getPropertyValue(name) :
+            allStyle;
+    },
+
+    // 获取元素位置
+    "offsetPosition": function (dom) {
+        var left = 0;
+        var top = 0;
+        top = dom.offsetTop;
+        left = dom.offsetLeft;
+        dom = dom.offsetParent;
+        while (dom) {
+            top += dom.offsetTop;
+            left += dom.offsetLeft;
+            dom = dom.offsetParent;
+        }
+        return {
+            "left": left,
+            "top": top
+        };
+    },
+
+    // 获取鼠标相对元素位置
+    "mousePosition": function (dom, event) {
+        var bounding = dom.getBoundingClientRect();
+        if (!event || !event.clientX)
+            throw new Error('Event is necessary!');
+        return {
+            "x": event.clientX - bounding.left,
+            "y": event.clientY - bounding.top
+        };
+    },
+
+    // 删除结点
+    "remove": function (dom) {
+        dom.parentNode.removeChild(dom);
+    },
+
+    // 设置多个样式
+    "setStyles": function (dom, styles) {
+        for (var key in styles)
+            dom.style[key] = styles[key];
+    },
+
+    // 获取元素大小
+    "size": function (dom, type) {
+        var elemHeight, elemWidth;
+        if (type == 'content') { //内容
+            elemWidth = dom.clientWidth - ((this.getStyle(dom, 'padding-left') + "").replace('px', '')) - ((this.getStyle(dom, 'padding-right') + "").replace('px', ''));
+            elemHeight = dom.clientHeight - ((this.getStyle(dom, 'padding-top') + "").replace('px', '')) - ((this.getStyle(dom, 'padding-bottom') + "").replace('px', ''));
+        } else if (type == 'padding') { //内容+内边距
+            elemWidth = dom.clientWidth;
+            elemHeight = dom.clientHeight;
+        } else if (type == 'border') { //内容+内边距+边框
+            elemWidth = dom.offsetWidth;
+            elemHeight = dom.offsetHeight;
+        } else if (type == 'scroll') { //滚动的宽（不包括border）
+            elemWidth = dom.scrollWidth;
+            elemHeight = dom.scrollHeight;
+        } else {
+            elemWidth = dom.offsetWidth;
+            elemHeight = dom.offsetHeight;
+        }
+        return {
+            width: elemWidth,
+            height: elemHeight
+        };
+    },
+
+    // 在被选元素内部的结尾插入内容
+    "append": function (el, template) {
+        var node = this.isNode(template) ? template : this.toNode(template);
+        el.appendChild(node);
+        return node;
+    },
+
+    // 在被选元素内部的开头插入内容
+    "prepend": function (el, template) {
+        var node = this.isNode(template) ? template : this.toNode(template);
+        el.insertBefore(node, el.childNodes[0]);
+        return node;
+    },
+
+    // 在被选元素之后插入内容
+    "after": function (el, template) {
+        var node = this.isNode(template) ? template : this.toNode(template);
+        el.parentNode.insertBefore(node, el.nextSibling);
+        return node;
+    },
+
+    // 在被选元素之前插入内容
+    "before": function (el, template) {
+        var node = this.isNode(template) ? template : this.toNode(template);
+        el.parentNode.insertBefore(node, el);
+        return node;
+    }
+
+};
+
+  
+    return __etcpack__scope_bundle__;
+}
+
+/*************************** [bundle] ****************************/
+// Original file:./node_modules/sprout-ui/nefbl/directive/ui-on.ts
+/*****************************************************************/
+window.__etcpack__bundleSrc__['25']=function(){
+    var __etcpack__scope_bundle__={};
+    var __etcpack__scope_args__;
+    var _dec, _class2;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+__etcpack__scope_args__=window.__etcpack__getBundle('2');
+var Directive=__etcpack__scope_args__.Directive;
+
+__etcpack__scope_args__=window.__etcpack__getBundle('24');
+var xhtml =__etcpack__scope_args__.default;
+
+/**
+ * [可以使用的修饰符]
+ * .prevent 阻止默认事件
+ * .stop    阻止冒泡
+ * .once    只执行一次
+ */
+
+var _class = (_dec = Directive({
+  selector: "ui-on"
+}), _dec(_class2 = /*#__PURE__*/function () {
+  function _class2() {
+    _classCallCheck(this, _class2);
+  }
+
+  _createClass(_class2, [{
+    key: "$inserted",
+    value: function $inserted(el, binding) {
+      var types = binding.type.split('.'),
+          modifier = {
+        "prevent": false,
+        "stop": false,
+        "once": false
+      },
+          callback = function callback(event) {
+        if (modifier.stop) xhtml.stopPropagation(event);
+        if (modifier.prevent) xhtml.preventDefault(event);
+        binding.value.apply(binding.target, [event]);
+
+        if (modifier.once) {
+          xhtml.unbind(el, types[0], callback);
+        }
+      };
+
+      for (var i = 1; i < types.length; i++) {
+        modifier[types[i]] = true;
+      }
+
+      xhtml.bind(el, types[0], callback);
+    }
+  }]);
+
+  return _class2;
+}()) || _class2);
+
+__etcpack__scope_bundle__.default=_class;
   
     return __etcpack__scope_bundle__;
 }
