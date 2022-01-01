@@ -1,0 +1,32 @@
+.open-web-word {
+    background-color: #eff2f2;
+
+    &>div {
+        &.menu {
+            border-bottom: 1px solid #cccccc;
+            height: 40px;
+
+            &>span {
+                height: 40px;
+                line-height: 40px;
+                display: inline-block;
+                vertical-align: top;
+
+                &.line {
+                    width: 1px;
+                    background-color: #cccccc;
+                }
+
+                &.btn {
+                    font-size: 12px;
+                    padding: 0 5px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &.content {
+            height: calc(100% - 40px);
+        }
+    }
+}

@@ -1,0 +1,55 @@
+.open-web-word {
+
+    width: 100%;
+    height: 100%;
+    line-height: 1.15;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    ::-ms-clear,
+    ::-ms-reveal {
+        display: none;
+    }
+
+    img {
+        display: inline-block;
+    }
+
+    html {
+        font-family: sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    ul,
+    ol,
+    li,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        /* 去掉不喜欢的间距 */
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0;
+        -webkit-padding-start: 0;
+        /* 去掉不喜欢的间距，针对火狐浏览器等 */
+        margin-block-end: 0;
+        margin-block-start: 0;
+        padding-inline-start: 0;
+        /* 修改IE和其它浏览器不一致问题 */
+        padding: 0;
+        margin: 0;
+    }
+
+}

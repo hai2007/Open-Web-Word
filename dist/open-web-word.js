@@ -9,7 +9,7 @@
  * Copyright (c) 2021-2022 hai2007 走一步，再走一步。
  * Released under the MIT license
  *
- * Date:Sat Jan 01 2022 14:57:17 GMT+0800 (中国标准时间)
+ * Date:Sat Jan 01 2022 23:52:56 GMT+0800 (中国标准时间)
  */
 /******/
 /******/  // EtcPack Bootstrap/******/  
@@ -114,7 +114,7 @@ window.__etcpack__bundleSrc__['1']=function(){
 var platform=__etcpack__scope_args__.platform;
 
 __etcpack__scope_args__=window.__etcpack__getBundle('4');
-var normalize =__etcpack__scope_args__.default;
+var style =__etcpack__scope_args__.default;
  // 兼容文件
 
 __etcpack__scope_args__=window.__etcpack__getBundle('5');
@@ -129,7 +129,7 @@ __etcpack__scope_bundle__.default= (function (el) {
     // 框架管理的区域
     el: el,
     // 全局样式
-    styles: [normalize]
+    styles: [style]
   }) // 然后启动主模块
   .bootstrap(appModule);
 });
@@ -1957,12 +1957,12 @@ window.__etcpack__bundleSrc__['3']=function(){
 }
 
 /*************************** [bundle] ****************************/
-// Original file:./node_modules/@hai2007/style/normalize.css
+// Original file:./src/style.scss
 /*****************************************************************/
 window.__etcpack__bundleSrc__['4']=function(){
     var __etcpack__scope_bundle__={};
     var __etcpack__scope_args__;
-    __etcpack__scope_bundle__.default= "/*!\n * 👁️ - 统一不同浏览器的基础样式\n * https://github.com/hai2007/style.css/blob/master/normalize.css\n *\n * author hai2007 < https://hai2007.gitee.io/sweethome >\n *\n * Copyright (c) 2020-present hai2007 走一步，再走一步。\n * Released under the MIT license\n */\n\nhtml {\n    /* 防止iPhone在坚屏转向横屏时放大文字 */\n    -ms-text-size-adjust: 100%;\n    -webkit-text-size-adjust: 100%;\n    /* 统一行高 */\n    line-height: 1.15;\n}\n\nbutton,\ninput {\n    /* 兼容部分手机下border不显示问题 */\n    border: 1px solid #b2b2bd;\n}\n\narticle,\nfooter,\nheader,\nnav,\nsection {\n    /* 修正旧浏览器未定义的块级元素 */\n    display: block;\n}\n\ncanvas,\nsvg {\n    /* 修正旧浏览器未定义的行内块元素 */\n    display: inline-block;\n}\n\n* {\n    /* 统一不同浏览器盒子尺寸计算方法 */\n    box-sizing: border-box;\n}\n\n::-ms-clear,\n::-ms-reveal {\n    /* 去掉IE浏览器输入框叉叉和眼睛 */\n    display: none;\n}\n\nimg {\n    /* 针对火狐浏览器在img标签没有src时候的差异修复 */\n    display: inline-block;\n}\n\nhtml {\n    /* 设置默认字体为统一的安全字体 */\n    font-family: sans-serif;\n}\n\na {\n    /* 默认去掉下划线 */\n    text-decoration: none;\n}\n\nli {\n    /* 去掉前置索引 */\n    list-style-type: none;\n}\n\nul,\nol,\nli,\np,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n    /* 去掉不喜欢的间距 */\n    -webkit-margin-before: 0;\n    -webkit-margin-after: 0;\n    -webkit-padding-start: 0;\n    /* 去掉不喜欢的间距，针对火狐浏览器等 */\n    margin-block-end: 0;\n    margin-block-start: 0;\n    padding-inline-start: 0;\n    /* 修改IE和其它浏览器不一致问题 */\n    padding: 0;\n    margin: 0;\n}\n\nbody {\n    /* 去掉默认的8px */\n    margin: 0;\n}\n\ntable {\n    /* 设置默认表格边框合并为一个单一的边框 */\n    border-collapse: collapse;\n}\n"
+    __etcpack__scope_bundle__.default= "\n .open-web-word{\n\nwidth: 100%;\n\nheight: 100%;\n\nline-height: 1.15;\n\n}\n\n .open-web-word *{\n\nbox-sizing: border-box;\n\n}\n\n .open-web-word ::-ms-clear, .open-web-word ::-ms-reveal{\n\ndisplay: none;\n\n}\n\n .open-web-word img{\n\ndisplay: inline-block;\n\n}\n\n .open-web-word html{\n\nfont-family: sans-serif;\n\n}\n\n .open-web-word a{\n\ntext-decoration: none;\n\n}\n\n .open-web-word li{\n\nlist-style-type: none;\n\n}\n/* 去掉不喜欢的间距 */\n .open-web-word ul, .open-web-word ol, .open-web-word li, .open-web-word p, .open-web-word h1, .open-web-word h2, .open-web-word h3, .open-web-word h4, .open-web-word h5, .open-web-word h6{\n\n-webkit-margin-before: 0;\n\n-webkit-margin-after: 0;\n\n-webkit-padding-start: 0;\n/* 去掉不喜欢的间距，针对火狐浏览器等 */\nmargin-block-end: 0;\n\nmargin-block-start: 0;\n\npadding-inline-start: 0;\n/* 修改IE和其它浏览器不一致问题 */\npadding: 0;\n\nmargin: 0;\n\n}\n"
   
     return __etcpack__scope_bundle__;
 }
@@ -2869,7 +2869,7 @@ __etcpack__scope_bundle__.default=_class;
 window.__etcpack__bundleSrc__['20']=function(){
     var __etcpack__scope_bundle__={};
     var __etcpack__scope_args__;
-    __etcpack__scope_bundle__.default= ""
+    __etcpack__scope_bundle__.default= "\n .open-web-word{\n\nbackground-color: #eff2f2;\n\n}\n\n .open-web-word>div.menu{\n\nborder-bottom: 1px solid #cccccc;\n\nheight: 40px;\n\n}\n\n .open-web-word>div.menu>span{\n\nheight: 40px;\n\nline-height: 40px;\n\ndisplay: inline-block;\n\nvertical-align: top;\n\n}\n\n .open-web-word>div.menu>span.line{\n\nwidth: 1px;\n\nbackground-color: #cccccc;\n\n}\n\n .open-web-word>div.menu>span.btn{\n\nfont-size: 12px;\n\npadding: 0 5px;\n\ncursor: pointer;\n\n}\n\n .open-web-word>div.content{\n\nheight: calc(100% - 40px);\n\n}\n"
   
     return __etcpack__scope_bundle__;
 }
@@ -2880,7 +2880,7 @@ window.__etcpack__bundleSrc__['20']=function(){
 window.__etcpack__bundleSrc__['21']=function(){
     var __etcpack__scope_bundle__={};
     var __etcpack__scope_args__;
-    __etcpack__scope_bundle__.default= ""
+    __etcpack__scope_bundle__.default= "<div class=\"open-web-word\">\n\n    <!-- 顶部菜单 -->\n    <div class=\"menu\">\n\n        <span class='btn'>格式刷</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn\">粗体</span>\n        <span class=\"btn\">斜体</span>\n        <span class=\"btn\">下划线</span>\n\n        <span class=\"line\"></span>\n\n        <span class='btn'>左对齐</span>\n        <span class='btn'>居中</span>\n        <span class='btn'>右对齐</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn\">文字颜色</span>\n        <span class=\"btn\">文字大小</span>\n        <span class=\"btn\">字体</span>\n        <span class=\"btn\">背景色</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn\">图片</span>\n        <span class=\"btn\">跳转</span>\n\n    </div>\n\n    <!-- 内容区域 -->\n    <div class=\"content\">\n\n    </div>\n\n</div>\n"
   
     return __etcpack__scope_bundle__;
 }

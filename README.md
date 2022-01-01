@@ -1,8 +1,13 @@
-# Open-Web-Word - Web版本的可扩展文字编辑器
+<p align='center'>
+    <a href='https://hai2007.github.io/Open-Web-Word/'>
+        <img src='https://hai2007.github.io/Open-Web-Word/logo.png' />
+    </a>
+</p>
+
+# [Open-Web-Word](https://hai2007.github.io/Open-Web-Word/) - Web版本的可扩展文字编辑器
 
 <p>
   <a href="https://hai2007.gitee.io/npm-downloads?interval=7&packages=open-web-word"><img src="https://img.shields.io/npm/dm/open-web-word.svg" alt="downloads"></a>
-  <a href="https://packagephobia.now.sh/result?p=open-web-word"><img src="https://packagephobia.now.sh/badge?p=open-web-word" alt="install size"></a>
   <a href="https://www.jsdelivr.com/package/npm/open-web-word"><img src="https://data.jsdelivr.com/v1/package/npm/open-web-word/badge" alt="CDN"></a>
   <a href="https://www.npmjs.com/package/open-web-word"><img src="https://img.shields.io/npm/v/open-web-word.svg" alt="Version"></a>
   <a href="https://github.com/hai2007/Open-Web-Word/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/open-web-word.svg" alt="License"></a>
@@ -17,6 +22,8 @@
 
 ## Issues
 使用的时候遇到任何问题或有好的建议，请点击进入[issue](https://github.com/hai2007/Open-Web-Word/issues)，欢迎参与维护！
+
+- 你可以查看[在线用例](https://hai2007.github.io/Open-Web-Word/)来快速体验！
 
 ## 如何使用
 

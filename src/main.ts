@@ -1,5 +1,5 @@
 import { platform } from 'nefbl'
-import normalize from "@hai2007/style/normalize.css"
+import style from "./style.scss"
 
 // 兼容文件
 import '@hai2007/polyfill/Promise.js'
@@ -16,7 +16,7 @@ export default el => {
         el,
 
         // 全局样式
-        styles: [normalize]
+        styles: [style]
 
     })
 
