@@ -9,7 +9,7 @@
  * Copyright (c) 2021-2022 hai2007 走一步，再走一步。
  * Released under the MIT license
  *
- * Date:Sat Jan 01 2022 23:52:56 GMT+0800 (中国标准时间)
+ * Date:Sun Jan 02 2022 19:24:38 GMT+0800 (中国标准时间)
  */
 /******/
 /******/  // EtcPack Bootstrap/******/  
@@ -2802,13 +2802,13 @@ __etcpack__scope_args__=window.__etcpack__getBundle('19');
 var AppComponent =__etcpack__scope_args__.default;
  // 指令
 
-__etcpack__scope_args__=window.__etcpack__getBundle('22');
+__etcpack__scope_args__=window.__etcpack__getBundle('23');
 var uiBind =__etcpack__scope_args__.default;
 
-__etcpack__scope_args__=window.__etcpack__getBundle('23');
+__etcpack__scope_args__=window.__etcpack__getBundle('24');
 var uiModel =__etcpack__scope_args__.default;
 
-__etcpack__scope_args__=window.__etcpack__getBundle('25');
+__etcpack__scope_args__=window.__etcpack__getBundle('26');
 var uiOn =__etcpack__scope_args__.default;
 
 
@@ -2834,19 +2834,25 @@ window.__etcpack__bundleSrc__['19']=function(){
     var __etcpack__scope_args__;
     var _dec, _class2;
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 __etcpack__scope_args__=window.__etcpack__getBundle('2');
 var Component=__etcpack__scope_args__.Component;
+var ref=__etcpack__scope_args__.ref;
 
 __etcpack__scope_args__=window.__etcpack__getBundle('20');
-var style =__etcpack__scope_args__.default;
+var ColorsPicker =__etcpack__scope_args__.default;
 
 __etcpack__scope_args__=window.__etcpack__getBundle('21');
+var style =__etcpack__scope_args__.default;
+
+__etcpack__scope_args__=window.__etcpack__getBundle('22');
 var template =__etcpack__scope_args__.default;
 
 
@@ -2854,9 +2860,36 @@ var _class = (_dec = Component({
   selector: "app-root",
   template: template,
   styles: [style]
-}), _dec(_class2 = /*#__PURE__*/_createClass(function _class2() {
-  _classCallCheck(this, _class2);
-})) || _class2);
+}), _dec(_class2 = /*#__PURE__*/function () {
+  function _class2() {
+    _classCallCheck(this, _class2);
+
+    _defineProperty(this, "fontColor", void 0);
+  }
+
+  _createClass(_class2, [{
+    key: "$setup",
+    value: // 文字颜色
+    function $setup() {
+      return {
+        fontColor: ref('#000')
+      };
+    } // 选择颜色
+
+  }, {
+    key: "selectColor",
+    value: function selectColor(e) {
+      var _this = this;
+
+      ColorsPicker.openPicker(this.fontColor, function (color) {
+        _this.fontColor = color;
+        e.target.style.backgroundColor = color;
+      }, '选择文字颜色');
+    }
+  }]);
+
+  return _class2;
+}()) || _class2);
 
 __etcpack__scope_bundle__.default=_class;
   
@@ -2864,12 +2897,65 @@ __etcpack__scope_bundle__.default=_class;
 }
 
 /*************************** [bundle] ****************************/
-// Original file:./src/App/index.scss
+// Original file:./node_modules/colors-picker/dist/colors-picker.min.js
 /*****************************************************************/
 window.__etcpack__bundleSrc__['20']=function(){
     var __etcpack__scope_bundle__={};
     var __etcpack__scope_args__;
-    __etcpack__scope_bundle__.default= "\n .open-web-word{\n\nbackground-color: #eff2f2;\n\n}\n\n .open-web-word>div.menu{\n\nborder-bottom: 1px solid #cccccc;\n\nheight: 40px;\n\n}\n\n .open-web-word>div.menu>span{\n\nheight: 40px;\n\nline-height: 40px;\n\ndisplay: inline-block;\n\nvertical-align: top;\n\n}\n\n .open-web-word>div.menu>span.line{\n\nwidth: 1px;\n\nbackground-color: #cccccc;\n\n}\n\n .open-web-word>div.menu>span.btn{\n\nfont-size: 12px;\n\npadding: 0 5px;\n\ncursor: pointer;\n\n}\n\n .open-web-word>div.content{\n\nheight: calc(100% - 40px);\n\n}\n"
+    
+
+        var module={
+            exports:{}
+        };
+        var exports=module.exports;
+
+        /*!
+ * Colors Picker - 一个类似浏览器调试工具中颜色选择器的H5版本的小组件。
+ * git+https://github.com/hai2007/colors-picker.git
+ *
+ * author 你好2007 < https://hai2007.gitee.io/sweethome >
+ *
+ * version 0.3.1
+ *
+ * Copyright (c) 2021 hai2007 走一步，再走一步。
+ * Released under the MIT license
+ *
+ * Date:Wed Dec 01 2021 22:53:20 GMT+0800 (GMT+08:00)
+ */
+(function(){"use strict";function _typeof(obj){"@babel/helpers - typeof";if(typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"){_typeof=function(obj){return typeof obj}}else{_typeof=function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj}}return _typeof(obj)}function _toConsumableArray(arr){return _arrayWithoutHoles(arr)||_iterableToArray(arr)||_unsupportedIterableToArray(arr)||_nonIterableSpread()}function _arrayWithoutHoles(arr){if(Array.isArray(arr))return _arrayLikeToArray(arr)}function _iterableToArray(iter){if(typeof Symbol!=="undefined"&&iter[Symbol.iterator]!=null||iter["@@iterator"]!=null)return Array.from(iter)}function _unsupportedIterableToArray(o,minLen){if(!o)return;if(typeof o==="string")return _arrayLikeToArray(o,minLen);var n=Object.prototype.toString.call(o).slice(8,-1);if(n==="Object"&&o.constructor)n=o.constructor.name;if(n==="Map"||n==="Set")return Array.from(o);if(n==="Arguments"||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))return _arrayLikeToArray(o,minLen)}function _arrayLikeToArray(arr,len){if(len==null||len>arr.length)len=arr.length;for(var i=0,arr2=new Array(len);i<len;i++)arr2[i]=arr[i];return arr2}function _nonIterableSpread(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}function _createForOfIteratorHelper(o,allowArrayLike){var it=typeof Symbol!=="undefined"&&o[Symbol.iterator]||o["@@iterator"];if(!it){if(Array.isArray(o)||(it=_unsupportedIterableToArray(o))||allowArrayLike&&o&&typeof o.length==="number"){if(it)o=it;var i=0;var F=function(){};return{s:F,n:function(){if(i>=o.length)return{done:true};return{done:false,value:o[i++]}},e:function(e){throw e},f:F}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var normalCompletion=true,didErr=false,err;return{s:function(){it=it.call(o)},n:function(){var step=it.next();normalCompletion=step.done;return step},e:function(e){didErr=true;err=e},f:function(){try{if(!normalCompletion&&it.return!=null)it.return()}finally{if(didErr)throw err}}}}var REGEXP={whitespace:"[\\x20\\t\\r\\n\\f]"};function getStyle(dom,name){var allStyle=document.defaultView&&document.defaultView.getComputedStyle?document.defaultView.getComputedStyle(dom,null):dom.currentStyle;return typeof name==="string"?allStyle.getPropertyValue(name):allStyle}
+/*!
+   * 🌐 - 颜色格式化
+   * https://github.com/hai2007/browser.js/blob/master/formatColor.js
+   *
+   * author hai2007 < https://hai2007.gitee.io/sweethome >
+   *
+   * Copyright (c) 2021-present hai2007 走一步，再走一步。
+   * Released under the MIT license
+   */function formatColor(color){var colorNode=document.getElementsByTagName("head")[0];colorNode.style["color"]=color;var rgba=getStyle(colorNode,"color");var rgbaArray=rgba.replace(/^rgba?\(([^)]+)\)$/,"$1").split(new RegExp("\\,"+REGEXP.whitespace));return[+rgbaArray[0],+rgbaArray[1],+rgbaArray[2],rgbaArray[3]==undefined?1:+rgbaArray[3]]}
+/*!
+   * 🌐 - 提供常用的DOM操作方法
+   * https://github.com/hai2007/browser.js/blob/master/xhtml.js
+   *
+   * author hai2007 < https://hai2007.gitee.io/sweethome >
+   *
+   * Copyright (c) 2021-present hai2007 走一步，再走一步。
+   * Released under the MIT license
+   */var namespace={svg:"http://www.w3.org/2000/svg",xhtml:"http://www.w3.org/1999/xhtml",xlink:"http://www.w3.org/1999/xlink",xml:"http://www.w3.org/XML/1998/namespace",xmlns:"http://www.w3.org/2000/xmlns/"};var xhtml={stopPropagation:function stopPropagation(event){event=event||window.event;if(event.stopPropagation){event.stopPropagation()}else{event.cancelBubble=true}},preventDefault:function preventDefault(event){event=event||window.event;if(event.preventDefault){event.preventDefault()}else{event.returnValue=false}},isNode:function isNode(param){return param&&(param.nodeType===1||param.nodeType===9||param.nodeType===11)},bind:function bind(dom,eventType,callback){if(dom.constructor===Array||dom.constructor===NodeList||dom.constructor===HTMLCollection){for(var i=0;i<dom.length;i++){this.bind(dom[i],eventType,callback)}return}if(window.attachEvent)dom.attachEvent("on"+eventType,callback);else dom.addEventListener(eventType,callback,false)},unbind:function unbind(dom,eventType,handler){if(dom.constructor===Array||dom.constructor===NodeList||dom.constructor===HTMLCollection){for(var i=0;i<dom.length;i++){this.unbind(dom[i],eventType,handler)}return}if(window.detachEvent)dom.detachEvent("on"+eventType,handler);else dom.removeEventListener(eventType,handler,false)},find:function find(context,selectFun,tagName){if(!this.isNode(context))return[];var nodes=context.getElementsByTagName(tagName||"*");var result=[];for(var i=0;i<nodes.length;i++){if(this.isNode(nodes[i])&&(typeof selectFun!="function"||selectFun(nodes[i])))result.push(nodes[i])}return result},children:function children(dom,selectFun){var nodes=dom.childNodes;var result=[];for(var i=0;i<nodes.length;i++){if(this.isNode(nodes[i])&&(typeof selectFun!="function"||selectFun(nodes[i])))result.push(nodes[i])}return result},hasClass:function hasClass(dom,clazzs,notStrict){if(clazzs.constructor!==Array)clazzs=[clazzs];var class_str=" "+(dom.getAttribute("class")||"")+" ";for(var i=0;i<clazzs.length;i++){if(class_str.indexOf(" "+clazzs[i]+" ")>=0){if(notStrict)return true}else{if(!notStrict)return false}}return true},removeClass:function removeClass(dom,clazz){var oldClazz=" "+(dom.getAttribute("class")||"")+" ";var newClazz=oldClazz.replace(" "+clazz.trim()+" "," ");dom.setAttribute("class",newClazz.trim())},addClass:function addClass(dom,clazz){if(this.hasClass(dom,clazz))return;var oldClazz=dom.getAttribute("class")||"";dom.setAttribute("class",oldClazz+" "+clazz)},toNode:function toNode(template,isSvg){var frame;if(isSvg)frame=document.createElementNS(namespace.svg,"svg");else{var frameTagName="div";if(/^<tr[> ]/.test(template)){frameTagName="tbody"}else if(/^<th[> ]/.test(template)||/^<td[> ]/.test(template)){frameTagName="tr"}else if(/^<thead[> ]/.test(template)||/^<tbody[> ]/.test(template)){frameTagName="table"}frame=document.createElement(frameTagName)}frame.innerHTML=template;var childNodes=frame.childNodes;for(var i=0;i<childNodes.length;i++){if(this.isNode(childNodes[i]))return childNodes[i]}},trigger:function trigger(dom,eventType){if(document.createEventObject){dom.fireEvent("on"+eventType,document.createEventObject())}else{var _event=document.createEvent("HTMLEvents");_event.initEvent(eventType,true,false);dom.dispatchEvent(_event)}},getStyle:function getStyle(dom,name){var allStyle=document.defaultView&&document.defaultView.getComputedStyle?document.defaultView.getComputedStyle(dom,null):dom.currentStyle;return typeof name==="string"?allStyle.getPropertyValue(name):allStyle},offsetPosition:function offsetPosition(dom){var left=0;var top=0;top=dom.offsetTop;left=dom.offsetLeft;dom=dom.offsetParent;while(dom){top+=dom.offsetTop;left+=dom.offsetLeft;dom=dom.offsetParent}return{left:left,top:top}},mousePosition:function mousePosition(dom,event){var bounding=dom.getBoundingClientRect();if(!event||!event.clientX)throw new Error("Event is necessary!");return{x:event.clientX-bounding.left,y:event.clientY-bounding.top}},remove:function remove(dom){dom.parentNode.removeChild(dom)},setStyles:function setStyles(dom,styles){for(var key in styles){dom.style[key]=styles[key]}},size:function size(dom,type){var elemHeight,elemWidth;if(type=="content"){elemWidth=dom.clientWidth-(this.getStyle(dom,"padding-left")+"").replace("px","")-(this.getStyle(dom,"padding-right")+"").replace("px","");elemHeight=dom.clientHeight-(this.getStyle(dom,"padding-top")+"").replace("px","")-(this.getStyle(dom,"padding-bottom")+"").replace("px","")}else if(type=="padding"){elemWidth=dom.clientWidth;elemHeight=dom.clientHeight}else if(type=="border"){elemWidth=dom.offsetWidth;elemHeight=dom.offsetHeight}else if(type=="scroll"){elemWidth=dom.scrollWidth;elemHeight=dom.scrollHeight}else{elemWidth=dom.offsetWidth;elemHeight=dom.offsetHeight}return{width:elemWidth,height:elemHeight}},append:function append(el,template){var node=this.isNode(template)?template:this.toNode(template);el.appendChild(node);return node},prepend:function prepend(el,template){var node=this.isNode(template)?template:this.toNode(template);el.insertBefore(node,el.childNodes[0]);return node},after:function after(el,template){var node=this.isNode(template)?template:this.toNode(template);el.parentNode.insertBefore(node,el.nextSibling);return node},before:function before(el,template){var node=this.isNode(template)?template:this.toNode(template);el.parentNode.insertBefore(node,el);return node}};function getColorByDeep(deep){var distDeep=1/6;var r,g,b;if(deep<=distDeep){r=255;g=0;b=deep/distDeep*255}else if(deep<=2*distDeep){r=(distDeep*2-deep)/distDeep*255;g=0;b=255}else if(deep<=3*distDeep){r=0;g=(deep-2*distDeep)/distDeep*255;b=255}else if(deep<=4*distDeep){r=0;g=255;b=(distDeep*4-deep)/distDeep*255}else if(deep<=5*distDeep){r=(deep-distDeep*4)/distDeep*255;g=255;b=0}else{r=255;g=(distDeep*6-deep)/distDeep*255;b=0}return[+r.toFixed(0),+g.toFixed(0),+b.toFixed(0)]}function getColorByPosition(r,g,b,x,y){var width=300,height=160;var _r=x/width*(r-255)+255;var _g=x/width*(g-255)+255;var _b=x/width*(b-255)+255;_r=(160-y)/height*_r;_g=(160-y)/height*_g;_b=(160-y)/height*_b;return[_r.toFixed(0),_g.toFixed(0),_b.toFixed(0)]}function drawColorCanvas(r,g,b){var canvas=document.getElementById("colors-picker-dialog_canvas0");var width=300,height=160;var painter=canvas.getContext("2d");for(var i=0;i<width;i++){for(var j=0;j<height;j++){var rgb=getColorByPosition(r,g,b,i,j);painter.fillStyle="rgb("+rgb[0]+","+rgb[1]+","+rgb[2]+")";painter.fillRect(i,j,1,1)}}}function calcDeepWidthColor(r,g,b){var distDeep=1/6;if(r==255&&g==0){return b/255*distDeep}else if(g==0&&b==255){return 2*distDeep-r/255*distDeep}else if(r==0&&b==255){return 2*distDeep+g/255*distDeep}else if(r==0&&g==255){return 4*distDeep-b/255*distDeep}else if(g==255&&b==0){return 4*distDeep+r/255*distDeep}else{return 6*distDeep-g/255*distDeep}}function updateColor(dialog){var color_rgb=getColorByPosition.apply(void 0,_toConsumableArray(dialog._colors_picker_.color_rgb).concat(_toConsumableArray(dialog._colors_picker_.pointer_position)));var color_rgba=[].concat(_toConsumableArray(color_rgb),[dialog._colors_picker_.color_alpha]);dialog._colors_picker_.target._color_=color_rgba;var color="rgba("+color_rgba[0]+","+color_rgba[1]+","+color_rgba[2]+","+color_rgba[3]+")";document.getElementById("colors-picker-dialog_color").style.backgroundColor=color;document.getElementById("colors-picker-dialog_canvas0_btn").style.backgroundColor=color}function dragdrop(){var el=document.getElementById("colors-picker-dialog_move");xhtml.bind(el,"mousedown",(function mousedown(event){el.setCapture&&el.setCapture();var _el=el.parentNode;var lf=event.clientX;var tp=event.clientY;var left=xhtml.getStyle(_el,"left").replace("px","");var top=xhtml.getStyle(_el,"top").replace("px","");function mousemove(event){_el.style.left=left- -event.clientX-lf+"px";_el.style.top=top- -event.clientY-tp+"px"}xhtml.bind(document,"mousemove",mousemove);xhtml.bind(document,"mouseup",(function(event){xhtml.unbind(document,"mousemove",mousemove);_el.releaseCapture&&_el.releaseCapture();return false}))}))}function mount(target,color,callback,title){var dialog=document.getElementById("colors-picker-dialog"),doit;target._color_=color;var updateColorCanvas=true;if(!dialog){(function(){xhtml.append(document.body,"<div id='colors-picker-dialog'\n                style='\n                    position: fixed;\n                    box-shadow: 0 0 7px 1px #9393a0;\n                    border-radius: 5px;\n                    background-color: white;\n                    font-size:0;\n                    user-select: none;\n                '>\n            <div id='colors-picker-dialog_move' style='\n                font-size: 16px;\n                text-align: center;\n                cursor: move;\n                border-radius: 5px 5px 0 0;\n                line-height: 30px;\n                background-color: #ffffff;\n                color: #252020;\n            '></div>\n            <div style='position: relative; overflow: hidden;' id='colors-picker-dialog_canvas0_frame'>\n                <canvas\n                    id='colors-picker-dialog_canvas0'\n                    style='width:300px;height:160px;'\n                    width='300px'\n                    height='160px'>\n                        非常抱歉，您的浏览器不支持canvas!\n                </canvas>\n                <span\n                    style='\n                        position: absolute;\n                        position: absolute;\n                        width: 12px;\n                        height: 12px;\n                        border-radius: 50%;\n                        right: -6px;\n                        top: -6px;\n                        box-shadow: 0 0 5px 3px #75757e;\n                        cursor:pointer;\n                    ' id='colors-picker-dialog_canvas0_btn'></span>\n            </div>\n            <div style='text-align:center;margin:20px 0;'>\n                <div\n                    id='colors-picker-dialog_color'\n                    style='\n                        display:inline-block;\n                        width:40px;\n                        height:40px;\n                        box-shadow: rgb(117, 117, 126) 0px 0px 9px 0px;\n                        border-radius:50%;\n                        margin-right:25px;\n                '></div>\n                <div style='display:inline-block;'>\n                    <div style='position: relative;' id='colors-picker-dialog_canvas1_frame'>\n                        <div id='colors-picker-dialog_canvas1'\n                            style='\n                                width:200px;\n                                height:16px;\n                                background-image: linear-gradient(to right, #f00, #f0f,#00f,#0ff,#0f0,#ff0,#f00); '>\n                        </div>\n                        <span\n                            style='\n                                position: absolute;\n                                width: 22px;\n                                height: 22px;\n                                display: inline-block;\n                                border-radius: 50%;\n                                right: -11px;\n                                top: -3.5px;\n                                cursor:pointer;\n                                box-shadow: 0 0 2px 0px grey;\n                                background: #faf8f8;'\n                            id='colors-picker-dialog_canvas1_btn'></span>\n                    </div>\n                    <div style='margin-top:10px;position: relative;' id='colors-picker-dialog_canvas2_frame'>\n                        <div id='colors-picker-dialog_canvas2'\n                            style='\n                                width:200px;\n                                height:16px;\n                                background-image: linear-gradient(to right, #f000, red); '>\n                        </div>\n                        <span\n                            style='\n                                position: absolute;\n                                width: 22px;\n                                height: 22px;\n                                box-shadow: 0 0 2px 0px grey;\n                                display: inline-block;\n                                border-radius: 50%;\n                                right: -11px;\n                                top: -3.5px;\n                                cursor:pointer;\n                                background: #faf8f8;'\n                            id='colors-picker-dialog_canvas2_btn'></span>\n                    </div>\n                </div>\n            </div>\n            <div style='text-align:center;padding:10px;'>\n                <button\n                    id='colors-picker-dialog_btn_cancel'\n                    style='\n                        margin-right:30px;\n                        background-color:white;\n                        width:90px;\n                        border-radius:5px;\n                        cursor:pointer;\n                    '>取消</button>\n                <button\n                    id='colors-picker-dialog_btn_checked'\n                    style='\n                        background-color:#449cf6;\n                        color:white;width:90px;\n                        border-radius:5px;\n                        cursor:pointer;\n                    '>确定</button>\n            </div>\n        </div>");dragdrop();dialog=document.getElementById("colors-picker-dialog");dialog.style.display="none";var btn_flag=-1;xhtml.bind(document.getElementById("colors-picker-dialog_canvas0_btn"),"mousedown",(function(){btn_flag=0}));xhtml.bind(document.getElementById("colors-picker-dialog_canvas1_btn"),"mousedown",(function(){btn_flag=1}));xhtml.bind(document.getElementById("colors-picker-dialog_canvas2_btn"),"mousedown",(function(){btn_flag=2}));var doMousemove=function doMousemove(event){if([0,1,2].indexOf(btn_flag)>-1){var position=xhtml.mousePosition(document.getElementById("colors-picker-dialog_canvas"+btn_flag+"_frame"),event);var btn=document.getElementById("colors-picker-dialog_canvas"+btn_flag+"_btn");if(btn_flag===0){if(position.y>160||position.y<0||position.x<0||position.x>300)return;btn.style.left=position.x-6+"px";btn.style.top=position.y-6+"px";dialog._colors_picker_.pointer_position=[position.x,position.y];updateColor(dialog)}else{if(position.x<0||position.x>200)return;btn.style.left=position.x-11+"px";if(btn_flag===1){var color_rgb=getColorByDeep(position.x/200);document.getElementById("colors-picker-dialog_canvas2").style.backgroundImage="linear-gradient(to right, #f000, rgb("+color_rgb[0]+","+color_rgb[1]+","+color_rgb[2]+"))";if(updateColorCanvas){updateColorCanvas=false;setTimeout((function(){drawColorCanvas.apply(void 0,_toConsumableArray(color_rgb));updateColorCanvas=true;dialog._colors_picker_.color_rgb=color_rgb;updateColor(dialog)}),10)}}else{dialog._colors_picker_.color_alpha=position.x/200;updateColor(dialog)}}}};var _loop=function _loop(canvasIndex){xhtml.bind(document.getElementById("colors-picker-dialog_canvas"+canvasIndex),"click",(function(event){btn_flag=canvasIndex;doMousemove(event);btn_flag=-1}))};for(var canvasIndex=0;canvasIndex<3;canvasIndex++){_loop(canvasIndex)}xhtml.bind(document.body,"mousemove",doMousemove);xhtml.bind(document.body,"mouseup",(function(){btn_flag=-1}));xhtml.bind(document.getElementById("colors-picker-dialog_btn_cancel"),"click",(function(){dialog.style.display="none"}));xhtml.bind(document.getElementById("colors-picker-dialog_btn_checked"),"click",(function(){dialog.style.display="none";var colorArray=dialog._colors_picker_.target._color_;dialog._colors_picker_.callback("rgba("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+","+colorArray[3]+")")}))})()}doit=function doit(){dialog._colors_picker_={callback:callback,target:target,color_rgb:[target._color_[0],target._color_[1],target._color_[2]],color_alpha:target._color_[3],pointer_position:[300,0]};var winSize={width:window.innerWidth,height:window.innerHeight};dialog.style.left=winSize.width*.5-150+"px";dialog.style.top=winSize.height*.5-142.5+"px";var rgba=dialog._colors_picker_.target._color_;drawColorCanvas.apply(void 0,_toConsumableArray(rgba));document.getElementById("colors-picker-dialog_canvas2").style.backgroundImage="linear-gradient(to right, #f000, rgb("+rgba[0]+","+rgba[1]+","+rgba[2]+"))";document.getElementById("colors-picker-dialog_canvas1_btn").style.left=calcDeepWidthColor.apply(void 0,_toConsumableArray(rgba))*200-11+"px";document.getElementById("colors-picker-dialog_canvas2_btn").style.left=rgba[3]*200-11+"px";document.getElementById("colors-picker-dialog_color").style.backgroundColor="rgba("+rgba[0]+","+rgba[1]+","+rgba[2]+","+rgba[3]+")";document.getElementById("colors-picker-dialog_move").innerText=title;dialog.style.display="block"};xhtml.bind(target,"click",doit)}var ColorsPicker=function ColorsPicker(el,initColor){var title=arguments.length>2&&arguments[2]!==undefined?arguments[2]:"选择颜色";var target=el;var color=formatColor(initColor);var callbacks=[];var ColorsPickerInstance={then:function then(callback){callbacks.push(callback);return ColorsPickerInstance}};mount(target,color,(function(_color){var _iterator=_createForOfIteratorHelper(callbacks),_step;try{for(_iterator.s();!(_step=_iterator.n()).done;){var callback=_step.value;callback(_color)}}catch(err){_iterator.e(err)}finally{_iterator.f()}}),title);return ColorsPickerInstance};var helpEl=null,doback;ColorsPicker.openPicker=function(initColor,_doback){var title=arguments.length>2&&arguments[2]!==undefined?arguments[2]:"选择颜色";doback=_doback;if(helpEl===null){helpEl=document.createElement("button");ColorsPicker(helpEl,initColor,title).then((function(color){doback(color)}))}else{var color=formatColor(initColor);var dialog=document.getElementById("colors-picker-dialog");document.getElementById("colors-picker-dialog_move").innerText=title;dialog._colors_picker_.color_rgb=[color[0],color[1],color[2]];dialog._colors_picker_.color_alpha=color[3];dialog._colors_picker_.target._color_=color}helpEl.click()};if((typeof module==="undefined"?"undefined":_typeof(module))==="object"&&_typeof(module.exports)==="object"){module.exports=ColorsPicker}else{window.ColorsPicker=ColorsPicker}})();
+
+        __etcpack__scope_bundle__.default= module.exports;
+
+        
+  
+    return __etcpack__scope_bundle__;
+}
+
+/*************************** [bundle] ****************************/
+// Original file:./src/App/index.scss
+/*****************************************************************/
+window.__etcpack__bundleSrc__['21']=function(){
+    var __etcpack__scope_bundle__={};
+    var __etcpack__scope_args__;
+    __etcpack__scope_bundle__.default= "\n .open-web-word{\n\nbackground-color: #eff2f2;\n\n}\n\n .open-web-word>div.menu{\n\nborder-bottom: 1px solid #cccccc;\n\nheight: 30px;\n\n}\n\n .open-web-word>div.menu>.logo{\n\nbackground-image: url('./image/logo.png');\n\npadding-left: 30px;\n\npadding-right: 10px;\n\nheight: 30px;\n\nline-height: 30px;\n\ndisplay: inline-block;\n\nvertical-align: top;\n\nbackground-size: auto 70%;\n\nbackground-repeat: no-repeat;\n\nbackground-position: 5px center;\n\nfont-size: 12px;\n\ncursor: pointer;\n\ncolor: rgb(0, 0, 0);\n\nfont-weight: 800;\n\n}\n\n .open-web-word>div.menu>.logo:hover{\n\ntext-decoration: underline;\n\n}\n\n .open-web-word>div.menu>span{\n\nheight: 30px;\n\nline-height: 30px;\n\ndisplay: inline-block;\n\nvertical-align: top;\n\n}\n\n .open-web-word>div.menu>span.line{\n\nwidth: 1px;\n\nbackground-color: #cccccc;\n\n}\n\n .open-web-word>div.menu>span.btn{\n\nfont-size: 0px;\n\nwidth: 30px;\n\ncursor: pointer;\n\nbackground-position: center;\n\nbackground-repeat: no-repeat;\n\n}\n\n .open-web-word>div.menu>span.btn.format{\n\nbackground-image: url('./image/format.png');\n\n}\n\n .open-web-word>div.menu>span.btn.weight{\n\nbackground-image: url('./image/weight.png');\n\n}\n\n .open-web-word>div.menu>span.btn.italic{\n\nbackground-image: url('./image/italic.png');\n\n}\n\n .open-web-word>div.menu>span.btn.underline{\n\nbackground-image: url('./image/underline.png');\n\n}\n\n .open-web-word>div.menu>span.btn.line-through{\n\nbackground-image: url('./image/line-through.png');\n\n}\n\n .open-web-word>div.menu>span.btn.left{\n\nbackground-image: url('./image/left.png');\n\n}\n\n .open-web-word>div.menu>span.btn.center{\n\nbackground-image: url('./image/center.png');\n\n}\n\n .open-web-word>div.menu>span.btn.right{\n\nbackground-image: url('./image/right.png');\n\n}\n\n .open-web-word>div.menu>span.btn.color>i{\n\ndisplay: inline-block;\n\nwidth: 14px;\n\nheight: 14px;\n\noutline: 1px solid rgb(255, 255, 255);\n\nmargin: 8px;\n\nbackground-color: #000;\n\n}\n\n .open-web-word>div.menu>span.btn.img{\n\nbackground-image: url('./image/img.png');\n\n}\n\n .open-web-word>div.menu>span.btn.link{\n\nbackground-image: url('./image/link.png');\n\n}\n\n .open-web-word>div.content{\n\nheight: calc(100% - 30px);\n\n}\n"
   
     return __etcpack__scope_bundle__;
 }
@@ -2877,10 +2963,10 @@ window.__etcpack__bundleSrc__['20']=function(){
 /*************************** [bundle] ****************************/
 // Original file:./src/App/index.html
 /*****************************************************************/
-window.__etcpack__bundleSrc__['21']=function(){
+window.__etcpack__bundleSrc__['22']=function(){
     var __etcpack__scope_bundle__={};
     var __etcpack__scope_args__;
-    __etcpack__scope_bundle__.default= "<div class=\"open-web-word\">\n\n    <!-- 顶部菜单 -->\n    <div class=\"menu\">\n\n        <span class='btn'>格式刷</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn\">粗体</span>\n        <span class=\"btn\">斜体</span>\n        <span class=\"btn\">下划线</span>\n\n        <span class=\"line\"></span>\n\n        <span class='btn'>左对齐</span>\n        <span class='btn'>居中</span>\n        <span class='btn'>右对齐</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn\">文字颜色</span>\n        <span class=\"btn\">文字大小</span>\n        <span class=\"btn\">字体</span>\n        <span class=\"btn\">背景色</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn\">图片</span>\n        <span class=\"btn\">跳转</span>\n\n    </div>\n\n    <!-- 内容区域 -->\n    <div class=\"content\">\n\n    </div>\n\n</div>\n"
+    __etcpack__scope_bundle__.default= "<div class=\"open-web-word\">\n\n    <!-- 顶部菜单 -->\n    <div class=\"menu\">\n\n        <a class=\"logo\" target=\"_blank\" href='https://github.com/hai2007/Open-Web-Word'>\n            Open Web Word\n        </a>\n\n        <span class=\"line\"></span>\n\n        <span class='btn format'>格式刷</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn weight\">粗体</span>\n        <span class=\"btn italic\">斜体</span>\n        <span class=\"btn underline\">下划线</span>\n        <span class=\"btn line-through\">下划线</span>\n\n        <span class=\"line\"></span>\n\n        <span class='btn left'>左对齐</span>\n        <span class='btn center'>居中</span>\n        <span class='btn right'>右对齐</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn color\">\n            <i ui-on:click='selectColor'>颜色</i>\n        </span>\n        <span class=\"btn size\">大小</span>\n        <span class=\"btn family\">字体</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn img\">图片</span>\n        <span class=\"btn link\">跳转</span>\n\n    </div>\n\n    <!-- 内容区域 -->\n    <div class=\"content\">\n\n    </div>\n\n</div>\n"
   
     return __etcpack__scope_bundle__;
 }
@@ -2888,7 +2974,7 @@ window.__etcpack__bundleSrc__['21']=function(){
 /*************************** [bundle] ****************************/
 // Original file:./node_modules/sprout-ui/nefbl/directive/ui-bind.ts
 /*****************************************************************/
-window.__etcpack__bundleSrc__['22']=function(){
+window.__etcpack__bundleSrc__['23']=function(){
     var __etcpack__scope_bundle__={};
     var __etcpack__scope_args__;
     var _dec, _class2;
@@ -2950,7 +3036,7 @@ __etcpack__scope_bundle__.default=_class;
 /*************************** [bundle] ****************************/
 // Original file:./node_modules/sprout-ui/nefbl/directive/ui-model.ts
 /*****************************************************************/
-window.__etcpack__bundleSrc__['23']=function(){
+window.__etcpack__bundleSrc__['24']=function(){
     var __etcpack__scope_bundle__={};
     var __etcpack__scope_args__;
     var _dec, _class2;
@@ -2965,7 +3051,7 @@ __etcpack__scope_args__=window.__etcpack__getBundle('2');
 var Directive=__etcpack__scope_args__.Directive;
 var setValue=__etcpack__scope_args__.setValue;
 
-__etcpack__scope_args__=window.__etcpack__getBundle('24');
+__etcpack__scope_args__=window.__etcpack__getBundle('25');
 var xhtml =__etcpack__scope_args__.default;
 
 
@@ -3002,7 +3088,7 @@ __etcpack__scope_bundle__.default=_class;
 /*************************** [bundle] ****************************/
 // Original file:./node_modules/@hai2007/browser/xhtml.js
 /*****************************************************************/
-window.__etcpack__bundleSrc__['24']=function(){
+window.__etcpack__bundleSrc__['25']=function(){
     var __etcpack__scope_bundle__={};
     var __etcpack__scope_args__;
     /*!
@@ -3317,7 +3403,7 @@ __etcpack__scope_bundle__.default= {
 /*************************** [bundle] ****************************/
 // Original file:./node_modules/sprout-ui/nefbl/directive/ui-on.ts
 /*****************************************************************/
-window.__etcpack__bundleSrc__['25']=function(){
+window.__etcpack__bundleSrc__['26']=function(){
     var __etcpack__scope_bundle__={};
     var __etcpack__scope_args__;
     var _dec, _class2;
@@ -3331,7 +3417,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 __etcpack__scope_args__=window.__etcpack__getBundle('2');
 var Directive=__etcpack__scope_args__.Directive;
 
-__etcpack__scope_args__=window.__etcpack__getBundle('24');
+__etcpack__scope_args__=window.__etcpack__getBundle('25');
 var xhtml =__etcpack__scope_args__.default;
 
 /**

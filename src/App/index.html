@@ -3,31 +3,39 @@
     <!-- 顶部菜单 -->
     <div class="menu">
 
-        <span class='btn'>格式刷</span>
+        <a class="logo" target="_blank" href='https://github.com/hai2007/Open-Web-Word'>
+            Open Web Word
+        </a>
 
         <span class="line"></span>
 
-        <span class="btn">粗体</span>
-        <span class="btn">斜体</span>
-        <span class="btn">下划线</span>
+        <span class='btn format'>格式刷</span>
 
         <span class="line"></span>
 
-        <span class='btn'>左对齐</span>
-        <span class='btn'>居中</span>
-        <span class='btn'>右对齐</span>
+        <span class="btn weight">粗体</span>
+        <span class="btn italic">斜体</span>
+        <span class="btn underline">下划线</span>
+        <span class="btn line-through">下划线</span>
 
         <span class="line"></span>
 
-        <span class="btn">文字颜色</span>
-        <span class="btn">文字大小</span>
-        <span class="btn">字体</span>
-        <span class="btn">背景色</span>
+        <span class='btn left'>左对齐</span>
+        <span class='btn center'>居中</span>
+        <span class='btn right'>右对齐</span>
 
         <span class="line"></span>
 
-        <span class="btn">图片</span>
-        <span class="btn">跳转</span>
+        <span class="btn color">
+            <i ui-on:click='selectColor'>颜色</i>
+        </span>
+        <span class="btn size">大小</span>
+        <span class="btn family">字体</span>
+
+        <span class="line"></span>
+
+        <span class="btn img">图片</span>
+        <span class="btn link">跳转</span>
 
     </div>
 

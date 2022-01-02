@@ -4,11 +4,32 @@
     &>div {
         &.menu {
             border-bottom: 1px solid #cccccc;
-            height: 40px;
+            height: 30px;
+
+            &>.logo {
+                background-image: url('./image/logo.png');
+                padding-left: 30px;
+                padding-right: 10px;
+                height: 30px;
+                line-height: 30px;
+                display: inline-block;
+                vertical-align: top;
+                background-size: auto 70%;
+                background-repeat: no-repeat;
+                background-position: 5px center;
+                font-size: 12px;
+                cursor: pointer;
+                color: rgb(0, 0, 0);
+                font-weight: 800;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
 
             &>span {
-                height: 40px;
-                line-height: 40px;
+                height: 30px;
+                line-height: 30px;
                 display: inline-block;
                 vertical-align: top;
 
@@ -18,15 +39,68 @@
                 }
 
                 &.btn {
-                    font-size: 12px;
-                    padding: 0 5px;
+                    font-size: 0px;
+                    width: 30px;
                     cursor: pointer;
+                    background-position: center;
+                    background-repeat: no-repeat;
+
+                    &.format {
+                        background-image: url('./image/format.png');
+                    }
+
+                    &.weight {
+                        background-image: url('./image/weight.png');
+                    }
+
+                    &.italic {
+                        background-image: url('./image/italic.png');
+                    }
+
+                    &.underline {
+                        background-image: url('./image/underline.png');
+                    }
+
+                    &.line-through {
+                        background-image: url('./image/line-through.png');
+                    }
+
+                    &.left {
+                        background-image: url('./image/left.png');
+                    }
+
+                    &.center {
+                        background-image: url('./image/center.png');
+                    }
+
+                    &.right {
+                        background-image: url('./image/right.png');
+                    }
+
+                    &.color {
+                        &>i {
+                            display: inline-block;
+                            width: 14px;
+                            height: 14px;
+                            outline: 1px solid rgb(255, 255, 255);
+                            margin: 8px;
+                            background-color: #000;
+                        }
+                    }
+
+                    &.img {
+                        background-image: url('./image/img.png');
+                    }
+
+                    &.link {
+                        background-image: url('./image/link.png');
+                    }
                 }
             }
         }
 
         &.content {
-            height: calc(100% - 40px);
+            height: calc(100% - 30px);
         }
     }
 }
