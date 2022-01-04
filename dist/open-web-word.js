@@ -9,7 +9,7 @@
  * Copyright (c) 2021-2022 hai2007 走一步，再走一步。
  * Released under the MIT license
  *
- * Date:Sun Jan 02 2022 19:24:38 GMT+0800 (中国标准时间)
+ * Date:Tue Jan 04 2022 10:38:38 GMT+0800 (中国标准时间)
  */
 /******/
 /******/  // EtcPack Bootstrap/******/  
@@ -2865,14 +2865,20 @@ var _class = (_dec = Component({
     _classCallCheck(this, _class2);
 
     _defineProperty(this, "fontColor", void 0);
+
+    _defineProperty(this, "fontSize", void 0);
+
+    _defineProperty(this, "fontFamily", void 0);
   }
 
   _createClass(_class2, [{
     key: "$setup",
-    value: // 文字颜色
+    value: // 文字字体
     function $setup() {
       return {
-        fontColor: ref('#000')
+        fontColor: ref('#000'),
+        fontSize: ref(14),
+        fontFamily: ref('serif')
       };
     } // 选择颜色
 
@@ -2955,7 +2961,7 @@ window.__etcpack__bundleSrc__['20']=function(){
 window.__etcpack__bundleSrc__['21']=function(){
     var __etcpack__scope_bundle__={};
     var __etcpack__scope_args__;
-    __etcpack__scope_bundle__.default= "\n .open-web-word{\n\nbackground-color: #eff2f2;\n\n}\n\n .open-web-word>div.menu{\n\nborder-bottom: 1px solid #cccccc;\n\nheight: 30px;\n\n}\n\n .open-web-word>div.menu>.logo{\n\nbackground-image: url('./image/logo.png');\n\npadding-left: 30px;\n\npadding-right: 10px;\n\nheight: 30px;\n\nline-height: 30px;\n\ndisplay: inline-block;\n\nvertical-align: top;\n\nbackground-size: auto 70%;\n\nbackground-repeat: no-repeat;\n\nbackground-position: 5px center;\n\nfont-size: 12px;\n\ncursor: pointer;\n\ncolor: rgb(0, 0, 0);\n\nfont-weight: 800;\n\n}\n\n .open-web-word>div.menu>.logo:hover{\n\ntext-decoration: underline;\n\n}\n\n .open-web-word>div.menu>span{\n\nheight: 30px;\n\nline-height: 30px;\n\ndisplay: inline-block;\n\nvertical-align: top;\n\n}\n\n .open-web-word>div.menu>span.line{\n\nwidth: 1px;\n\nbackground-color: #cccccc;\n\n}\n\n .open-web-word>div.menu>span.btn{\n\nfont-size: 0px;\n\nwidth: 30px;\n\ncursor: pointer;\n\nbackground-position: center;\n\nbackground-repeat: no-repeat;\n\n}\n\n .open-web-word>div.menu>span.btn.format{\n\nbackground-image: url('./image/format.png');\n\n}\n\n .open-web-word>div.menu>span.btn.weight{\n\nbackground-image: url('./image/weight.png');\n\n}\n\n .open-web-word>div.menu>span.btn.italic{\n\nbackground-image: url('./image/italic.png');\n\n}\n\n .open-web-word>div.menu>span.btn.underline{\n\nbackground-image: url('./image/underline.png');\n\n}\n\n .open-web-word>div.menu>span.btn.line-through{\n\nbackground-image: url('./image/line-through.png');\n\n}\n\n .open-web-word>div.menu>span.btn.left{\n\nbackground-image: url('./image/left.png');\n\n}\n\n .open-web-word>div.menu>span.btn.center{\n\nbackground-image: url('./image/center.png');\n\n}\n\n .open-web-word>div.menu>span.btn.right{\n\nbackground-image: url('./image/right.png');\n\n}\n\n .open-web-word>div.menu>span.btn.color>i{\n\ndisplay: inline-block;\n\nwidth: 14px;\n\nheight: 14px;\n\noutline: 1px solid rgb(255, 255, 255);\n\nmargin: 8px;\n\nbackground-color: #000;\n\n}\n\n .open-web-word>div.menu>span.btn.img{\n\nbackground-image: url('./image/img.png');\n\n}\n\n .open-web-word>div.menu>span.btn.link{\n\nbackground-image: url('./image/link.png');\n\n}\n\n .open-web-word>div.content{\n\nheight: calc(100% - 30px);\n\n}\n"
+    __etcpack__scope_bundle__.default= "\n .open-web-word{\n\nbackground-color: #eff2f2;\n\n}\n\n .open-web-word>div.menu{\n\nborder-bottom: 1px solid #cccccc;\n\nheight: 30px;\n\n}\n\n .open-web-word>div.menu>.logo{\n\nbackground-image: url('./image/logo.png');\n\npadding-left: 30px;\n\npadding-right: 10px;\n\nheight: 30px;\n\nline-height: 30px;\n\ndisplay: inline-block;\n\nvertical-align: top;\n\nbackground-size: auto 70%;\n\nbackground-repeat: no-repeat;\n\nbackground-position: 5px center;\n\nfont-size: 12px;\n\ncursor: pointer;\n\ncolor: rgb(0, 0, 0);\n\nfont-weight: 800;\n\n}\n\n .open-web-word>div.menu>.logo:hover{\n\ntext-decoration: underline;\n\n}\n\n .open-web-word>div.menu>span{\n\nheight: 30px;\n\nline-height: 30px;\n\ndisplay: inline-block;\n\nvertical-align: top;\n\n}\n\n .open-web-word>div.menu>span.line{\n\nwidth: 1px;\n\nbackground-color: #cccccc;\n\n}\n\n .open-web-word>div.menu>span.btn{\n\nfont-size: 0px;\n\nwidth: 30px;\n\ncursor: pointer;\n\nbackground-position: center;\n\nbackground-repeat: no-repeat;\n\n}\n\n .open-web-word>div.menu>span.btn.format{\n\nbackground-image: url('./image/format.png');\n\n}\n\n .open-web-word>div.menu>span.btn.weight{\n\nbackground-image: url('./image/weight.png');\n\n}\n\n .open-web-word>div.menu>span.btn.italic{\n\nbackground-image: url('./image/italic.png');\n\n}\n\n .open-web-word>div.menu>span.btn.underline{\n\nbackground-image: url('./image/underline.png');\n\n}\n\n .open-web-word>div.menu>span.btn.line-through{\n\nbackground-image: url('./image/line-through.png');\n\n}\n\n .open-web-word>div.menu>span.btn.left{\n\nbackground-image: url('./image/left.png');\n\n}\n\n .open-web-word>div.menu>span.btn.center{\n\nbackground-image: url('./image/center.png');\n\n}\n\n .open-web-word>div.menu>span.btn.right{\n\nbackground-image: url('./image/right.png');\n\n}\n\n .open-web-word>div.menu>span.btn.color>i{\n\ndisplay: inline-block;\n\nwidth: 14px;\n\nheight: 14px;\n\noutline: 1px solid rgb(255, 255, 255);\n\nmargin: 8px;\n\nbackground-color: #000;\n\n}\n\n .open-web-word>div.menu>span.btn.img{\n\nbackground-image: url('./image/img.png');\n\n}\n\n .open-web-word>div.menu>span.btn.link{\n\nbackground-image: url('./image/link.png');\n\n}\n\n .open-web-word>div.menu>span.btn.input{\n\nwidth: 60px;\n\nfont-size: 12px;\n\n}\n\n .open-web-word>div.menu>span.btn.input>input{\n\nheight: 18px;\n\nwidth: 44px;\n\nmargin: 6px;\n\noutline: none;\n\nborder: none;\n\n}\n\n .open-web-word>div.content{\n\nheight: calc(100% - 30px);\n\noverflow: auto;\n\n}\n\n .open-web-word>div.content>div{\n\nwidth: 900px;\n\nheight: calc(100% - 100px);\n\nmin-height: 1200px;\n\nmargin: 50px auto;\n\nbackground-color: white;\n\n}\n"
   
     return __etcpack__scope_bundle__;
 }
@@ -2966,7 +2972,7 @@ window.__etcpack__bundleSrc__['21']=function(){
 window.__etcpack__bundleSrc__['22']=function(){
     var __etcpack__scope_bundle__={};
     var __etcpack__scope_args__;
-    __etcpack__scope_bundle__.default= "<div class=\"open-web-word\">\n\n    <!-- 顶部菜单 -->\n    <div class=\"menu\">\n\n        <a class=\"logo\" target=\"_blank\" href='https://github.com/hai2007/Open-Web-Word'>\n            Open Web Word\n        </a>\n\n        <span class=\"line\"></span>\n\n        <span class='btn format'>格式刷</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn weight\">粗体</span>\n        <span class=\"btn italic\">斜体</span>\n        <span class=\"btn underline\">下划线</span>\n        <span class=\"btn line-through\">下划线</span>\n\n        <span class=\"line\"></span>\n\n        <span class='btn left'>左对齐</span>\n        <span class='btn center'>居中</span>\n        <span class='btn right'>右对齐</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn color\">\n            <i ui-on:click='selectColor'>颜色</i>\n        </span>\n        <span class=\"btn size\">大小</span>\n        <span class=\"btn family\">字体</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn img\">图片</span>\n        <span class=\"btn link\">跳转</span>\n\n    </div>\n\n    <!-- 内容区域 -->\n    <div class=\"content\">\n\n    </div>\n\n</div>\n"
+    __etcpack__scope_bundle__.default= "<div class=\"open-web-word\">\n\n    <!-- 顶部菜单 -->\n    <div class=\"menu\">\n\n        <a class=\"logo\" target=\"_blank\" href='https://github.com/hai2007/Open-Web-Word'>\n            Open Web Word\n        </a>\n\n        <span class=\"line\"></span>\n\n        <span class='btn format'>格式刷</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn weight\">粗体</span>\n        <span class=\"btn italic\">斜体</span>\n        <span class=\"btn underline\">下划线</span>\n        <span class=\"btn line-through\">下划线</span>\n\n        <span class=\"line\"></span>\n\n        <span class='btn left'>左对齐</span>\n        <span class='btn center'>居中</span>\n        <span class='btn right'>右对齐</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn color\">\n            <i ui-on:click='selectColor'>颜色</i>\n        </span>\n        <span class=\"btn input\">\n            <!-- 大小 -->\n            <input type=\"text\" ui-model='fontSize'>\n        </span>\n        <span class=\"btn input\">\n            <!-- 字体 -->\n            <input type=\"text\" ui-model='fontFamily'>\n        </span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn img\">图片</span>\n        <span class=\"btn link\">跳转</span>\n\n    </div>\n\n    <!-- 内容区域 -->\n    <div class=\"content\">\n        <div>\n\n        </div>\n    </div>\n\n</div>\n"
   
     return __etcpack__scope_bundle__;
 }

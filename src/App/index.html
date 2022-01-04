@@ -29,8 +29,14 @@
         <span class="btn color">
             <i ui-on:click='selectColor'>颜色</i>
         </span>
-        <span class="btn size">大小</span>
-        <span class="btn family">字体</span>
+        <span class="btn input">
+            <!-- 大小 -->
+            <input type="text" ui-model='fontSize'>
+        </span>
+        <span class="btn input">
+            <!-- 字体 -->
+            <input type="text" ui-model='fontFamily'>
+        </span>
 
         <span class="line"></span>
 
@@ -41,7 +47,9 @@
 
     <!-- 内容区域 -->
     <div class="content">
+        <div>
 
+        </div>
     </div>
 
 </div>

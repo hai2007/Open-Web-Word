@@ -13,10 +13,14 @@ import template from './index.html'
 export default class {
 
     fontColor: string // 文字颜色
+    fontSize: number // 文字大小
+    fontFamily: string // 文字字体
 
     $setup() {
         return {
-            fontColor: ref('#000')
+            fontColor: ref('#000'),
+            fontSize: ref(14),
+            fontFamily: ref('serif')
         }
     }
 
@@ -24,7 +28,7 @@ export default class {
     selectColor(e) {
         ColorsPicker.openPicker(this.fontColor, color => {
             this.fontColor = color
-            e.target.style.backgroundColor = color;
+            e.target.style.backgroundColor = color
         }, '选择文字颜色')
     }
 
