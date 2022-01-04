@@ -1,4 +1,5 @@
 const CommonjsPlug = require('@etcpack/commonjs-plug');
+const fs = require('fs');
 
 module.exports = {
 
@@ -15,7 +16,20 @@ module.exports = {
 
     loader: [{
         test: /\.(css|scss)$/,
-        handler: ['@etcpack/plain-loader', '@etcpack/scss-loader']
+        handler: ['@etcpack/plain-loader', function (source) {
+
+            let imgStatement = null;
+            while (imgStatement = /url\((['|"])(\.\/[^'"]*)\1\)/.exec(source)) {
+
+                let bitmap = fs.readFileSync(imgStatement[2]);
+                let base64Img = "data:image/png;base64," + Buffer.from(bitmap, 'binary').toString('base64');
+
+                source = source.replace(imgStatement[0], 'url(' + base64Img + ')');
+            }
+
+            return source;
+
+        }, '@etcpack/scss-loader']
     }, {
         test: /\.html$/,
         handler: ['@etcpack/plain-loader']

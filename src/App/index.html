@@ -13,16 +13,23 @@
 
         <span class="line"></span>
 
-        <span class="btn weight">粗体</span>
-        <span class="btn italic">斜体</span>
-        <span class="btn underline">下划线</span>
-        <span class="btn line-through">下划线</span>
+        <span class="btn weight" ui-on:click='changeValue' key='fontWeight'
+            ui-bind:active='fontWeight?"yes":"no"'>粗体</span>
+        <span class="btn italic" ui-on:click='changeValue' key='fontItalic'
+            ui-bind:active='fontItalic?"yes":"no"'>斜体</span>
+        <span class="btn underline" ui-on:click='changeValue' key='underline'
+            ui-bind:active='underline?"yes":"no"'>下划线</span>
+        <span class="btn line-through" ui-on:click='changeValue' key='lineThrough'
+            ui-bind:active='lineThrough?"yes":"no"'>中划线</span>
 
         <span class="line"></span>
 
-        <span class='btn left'>左对齐</span>
-        <span class='btn center'>居中</span>
-        <span class='btn right'>右对齐</span>
+        <span class='btn left' ui-on:click='changeValue' key='fontAlign' value='left'
+            ui-bind:active='fontAlign=="left"?"yes":"no"'>左对齐</span>
+        <span class='btn center' ui-on:click='changeValue' key='fontAlign' value='center'
+            ui-bind:active='fontAlign=="center"?"yes":"no"'>居中</span>
+        <span class='btn right' ui-on:click='changeValue' key='fontAlign' value='right'
+            ui-bind:active='fontAlign=="right"?"yes":"no"'>右对齐</span>
 
         <span class="line"></span>
 
@@ -47,9 +54,7 @@
 
     <!-- 内容区域 -->
     <div class="content">
-        <div>
-
-        </div>
+        <div contenteditable="true" ui-on:keydown='doInput'></div>
     </div>
 
 </div>
