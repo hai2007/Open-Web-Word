@@ -4,8 +4,6 @@ import ColorsPicker from 'colors-picker'
 import { isElement } from '@hai2007/tool/type'
 import xhtml from '@hai2007/browser/xhtml'
 
-// import getCaretPosition from '../tool/getCaretPosition'
-
 import style from './index.scss'
 import template from './index.html'
 
@@ -76,13 +74,14 @@ export default class {
         })
     }
 
-    // 监听输入事件
-    doInput(e) {
+    // 修改地区光标控制的内容
+    updateCurEl() {
 
-        // let el = e.target
-        // console.log(getCaretPosition(el))
+        let _curEl = isElement((window.getSelection().anchorNode)) ? window.getSelection().anchorNode : window.getSelection().anchorNode.parentNode
+        if (_curEl == this.curEl) return
 
-        this.curEl = isElement((window.getSelection().anchorNode)) ? window.getSelection().anchorNode : window.getSelection().anchorNode.parentNode
+        this.curEl = _curEl
+        this.updateStyle()
 
     }
 
