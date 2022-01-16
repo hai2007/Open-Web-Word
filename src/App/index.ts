@@ -56,6 +56,9 @@ export default class {
         // 设置新值
         this[key] = value ? value : !this[key]
 
+        if (key == 'underline' && this.underline) this.lineThrough = false
+        else if (key == 'lineThrough' && this.lineThrough) this.underline = false
+
         this.updateStyle()
 
     }
