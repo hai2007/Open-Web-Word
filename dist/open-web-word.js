@@ -4,12 +4,12 @@
  *
  * author 你好2007 < https://hai2007.gitee.io/sweethome >
  *
- * version 0.2.3
+ * version 0.2.4
  *
  * Copyright (c) 2021-2022 hai2007 走一步，再走一步。
  * Released under the MIT license
  *
- * Date:Sun Jan 16 2022 16:21:37 GMT+0800 (GMT+08:00)
+ * Date:Sun Jan 16 2022 18:21:25 GMT+0800 (GMT+08:00)
  */
 /******/
 /******/  // EtcPack Bootstrap/******/  
@@ -2907,12 +2907,11 @@ var _class = (_dec = Component({
 
   }, {
     key: "selectColor",
-    value: function selectColor(e) {
+    value: function selectColor() {
       var _this = this;
 
       ColorsPicker.openPicker(this.fontColor, function (color) {
         _this.fontColor = color;
-        e.target.style.backgroundColor = color;
 
         _this.updateStyle();
       }, '选择文字颜色');
@@ -2931,7 +2930,9 @@ var _class = (_dec = Component({
   }, {
     key: "updateStyle",
     value: function updateStyle() {
-      if (this.curEl == null) return;
+      if (this.curEl == null) return; // 标记已经有自己的样式
+
+      this.curEl._oww_updateStyle = true;
       xhtml.setStyles(this.curEl, {
         "font-weight": this.fontWeight ? 800 : 400,
         // 是否加粗
@@ -2956,8 +2957,21 @@ var _class = (_dec = Component({
       var _curEl = isElement(window.getSelection().anchorNode) ? window.getSelection().anchorNode : window.getSelection().anchorNode.parentNode;
 
       if (_curEl == this.curEl) return;
-      this.curEl = _curEl;
-      this.updateStyle();
+      this.curEl = _curEl; // 如果设置过了，应该同步显示出来
+
+      if (this.curEl._oww_updateStyle) {
+        this.fontWeight = xhtml.getStyle(this.curEl, 'font-weight') == 800;
+        this.fontItalic = xhtml.getStyle(this.curEl, 'font-style') == "italic";
+        this.underline = /underline/.test(xhtml.getStyle(this.curEl, 'text-decoration'));
+        this.lineThrough = /line\-through/.test(xhtml.getStyle(this.curEl, 'text-decoration'));
+        this.fontAlign = xhtml.getStyle(this.curEl, 'text-align');
+        this.fontColor = xhtml.getStyle(this.curEl, 'color');
+        this.fontSize = xhtml.getStyle(this.curEl, 'font-size');
+        this.fontFamily = xhtml.getStyle(this.curEl, 'font-family');
+      } // 否则，还没设置过
+      else {
+        this.updateStyle();
+      }
     }
   }]);
 
@@ -3354,7 +3368,7 @@ window.__etcpack__bundleSrc__['22']=function(){
 window.__etcpack__bundleSrc__['23']=function(){
     var __etcpack__scope_bundle__={};
     var __etcpack__scope_args__;
-    __etcpack__scope_bundle__.default= "<div class=\"open-web-word\">\n\n    <!-- 顶部菜单 -->\n    <div class=\"menu\">\n\n        <a class=\"logo\" target=\"_blank\" href='https://github.com/hai2007/Open-Web-Word'>\n            Open Web Word\n        </a>\n\n        <!-- <span class=\"line\"></span> -->\n\n        <!-- <span class='btn format'>格式刷</span> -->\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn weight\" ui-on:click='changeValue' key='fontWeight'\n            ui-bind:active='fontWeight?\"yes\":\"no\"'>粗体</span>\n        <span class=\"btn italic\" ui-on:click='changeValue' key='fontItalic'\n            ui-bind:active='fontItalic?\"yes\":\"no\"'>斜体</span>\n        <span class=\"btn underline\" ui-on:click='changeValue' key='underline'\n            ui-bind:active='underline?\"yes\":\"no\"'>下划线</span>\n        <span class=\"btn line-through\" ui-on:click='changeValue' key='lineThrough'\n            ui-bind:active='lineThrough?\"yes\":\"no\"'>中划线</span>\n\n        <span class=\"line\"></span>\n\n        <span class='btn left' ui-on:click='changeValue' key='fontAlign' value='left'\n            ui-bind:active='fontAlign==\"left\"?\"yes\":\"no\"'>左对齐</span>\n        <span class='btn center' ui-on:click='changeValue' key='fontAlign' value='center'\n            ui-bind:active='fontAlign==\"center\"?\"yes\":\"no\"'>居中</span>\n        <span class='btn right' ui-on:click='changeValue' key='fontAlign' value='right'\n            ui-bind:active='fontAlign==\"right\"?\"yes\":\"no\"'>右对齐</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn color\">\n            <i ui-on:click='selectColor'>颜色</i>\n        </span>\n        <span class=\"btn input\">\n            <!-- 大小 -->\n            <input type=\"text\" ui-model='fontSize' ui-on:keyup='updateStyle'>\n        </span>\n        <span class=\"btn input\">\n            <!-- 字体 -->\n            <input type=\"text\" ui-model='fontFamily' ui-on:keyup='updateStyle'>\n        </span>\n\n        <!-- <span class=\"line\"></span> -->\n\n        <!-- <span class=\"btn img\">图片</span> -->\n        <!-- <span class=\"btn link\">跳转</span> -->\n\n    </div>\n\n    <!-- 内容区域 -->\n    <div class=\"content\">\n        <div contenteditable=\"true\" ui-on:keyup=\"updateCurEl\" ui-on:click=\"updateCurEl\">\n            <div><br /></div>\n        </div>\n    </div>\n\n</div>\n"
+    __etcpack__scope_bundle__.default= "<div class=\"open-web-word\">\n\n    <!-- 顶部菜单 -->\n    <div class=\"menu\">\n\n        <a class=\"logo\" target=\"_blank\" href='https://github.com/hai2007/Open-Web-Word'>\n            Open Web Word\n        </a>\n\n        <!-- <span class=\"line\"></span> -->\n\n        <!-- <span class='btn format'>格式刷</span> -->\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn weight\" ui-on:click='changeValue' key='fontWeight'\n            ui-bind:active='fontWeight?\"yes\":\"no\"'>粗体</span>\n        <span class=\"btn italic\" ui-on:click='changeValue' key='fontItalic'\n            ui-bind:active='fontItalic?\"yes\":\"no\"'>斜体</span>\n        <span class=\"btn underline\" ui-on:click='changeValue' key='underline'\n            ui-bind:active='underline?\"yes\":\"no\"'>下划线</span>\n        <span class=\"btn line-through\" ui-on:click='changeValue' key='lineThrough'\n            ui-bind:active='lineThrough?\"yes\":\"no\"'>中划线</span>\n\n        <span class=\"line\"></span>\n\n        <span class='btn left' ui-on:click='changeValue' key='fontAlign' value='left'\n            ui-bind:active='fontAlign==\"left\"?\"yes\":\"no\"'>左对齐</span>\n        <span class='btn center' ui-on:click='changeValue' key='fontAlign' value='center'\n            ui-bind:active='fontAlign==\"center\"?\"yes\":\"no\"'>居中</span>\n        <span class='btn right' ui-on:click='changeValue' key='fontAlign' value='right'\n            ui-bind:active='fontAlign==\"right\"?\"yes\":\"no\"'>右对齐</span>\n\n        <span class=\"line\"></span>\n\n        <span class=\"btn color\">\n            <i ui-on:click='selectColor' ui-bind:style='\"background-color:\" +fontColor+\";\"'>颜色</i>\n        </span>\n        <span class=\"btn input\">\n            <!-- 大小 -->\n            <input type=\"text\" ui-model='fontSize' ui-on:keyup='updateStyle'>\n        </span>\n        <span class=\"btn input\">\n            <!-- 字体 -->\n            <input type=\"text\" ui-model='fontFamily' ui-on:keyup='updateStyle'>\n        </span>\n\n        <!-- <span class=\"line\"></span> -->\n\n        <!-- <span class=\"btn img\">图片</span> -->\n        <!-- <span class=\"btn link\">跳转</span> -->\n\n    </div>\n\n    <!-- 内容区域 -->\n    <div class=\"content\">\n        <div contenteditable=\"true\" ui-on:keyup=\"updateCurEl\" ui-on:click=\"updateCurEl\">\n            <div><br /></div>\n        </div>\n    </div>\n\n</div>\n"
   
     return __etcpack__scope_bundle__;
 }

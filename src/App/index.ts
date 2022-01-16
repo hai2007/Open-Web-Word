@@ -23,7 +23,7 @@ export default class {
     fontSize: number // 文字大小
     fontFamily: string // 文字字体
 
-    curEl: Element | null | Node
+    curEl: any
 
     $setup() {
         return {
@@ -40,10 +40,9 @@ export default class {
     }
 
     // 选择颜色
-    selectColor(e) {
+    selectColor() {
         ColorsPicker.openPicker(this.fontColor, color => {
             this.fontColor = color
-            e.target.style.backgroundColor = color
             this.updateStyle()
         }, '选择文字颜色')
     }
@@ -66,6 +65,9 @@ export default class {
     updateStyle() {
         if (this.curEl == null) return
 
+        // 标记已经有自己的样式
+        this.curEl._oww_updateStyle = true
+
         xhtml.setStyles(this.curEl, {
             "font-weight": this.fontWeight ? 800 : 400, // 是否加粗
             "font-style": this.fontItalic ? "italic" : "normal",// 是否斜体
@@ -84,7 +86,23 @@ export default class {
         if (_curEl == this.curEl) return
 
         this.curEl = _curEl
-        this.updateStyle()
+
+        // 如果设置过了，应该同步显示出来
+        if (this.curEl._oww_updateStyle) {
+            this.fontWeight = xhtml.getStyle(this.curEl, 'font-weight') == 800
+            this.fontItalic = xhtml.getStyle(this.curEl, 'font-style') == "italic"
+            this.underline = /underline/.test(xhtml.getStyle(this.curEl, 'text-decoration'))
+            this.lineThrough = /line\-through/.test(xhtml.getStyle(this.curEl, 'text-decoration'))
+            this.fontAlign = xhtml.getStyle(this.curEl, 'text-align')
+            this.fontColor = xhtml.getStyle(this.curEl, 'color')
+            this.fontSize = xhtml.getStyle(this.curEl, 'font-size')
+            this.fontFamily = xhtml.getStyle(this.curEl, 'font-family')
+        }
+
+        // 否则，还没设置过
+        else {
+            this.updateStyle()
+        }
 
     }
 
