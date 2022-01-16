@@ -1,6 +1,10 @@
 import { Component, ref } from 'nefbl'
 
 import ColorsPicker from 'colors-picker'
+import { isElement } from '@hai2007/tool/type'
+import xhtml from '@hai2007/browser/xhtml'
+
+// import getCaretPosition from '../tool/getCaretPosition'
 
 import style from './index.scss'
 import template from './index.html'
@@ -21,6 +25,8 @@ export default class {
     fontSize: number // 文字大小
     fontFamily: string // 文字字体
 
+    curEl: Element | null | Node
+
     $setup() {
         return {
             fontWeight: ref(false),
@@ -30,7 +36,8 @@ export default class {
             fontAlign: ref('left'),
             fontColor: ref('#000'),
             fontSize: ref(14),
-            fontFamily: ref('serif')
+            fontFamily: ref('serif'),
+            curEl: ref(null)
         }
     }
 
@@ -39,6 +46,7 @@ export default class {
         ColorsPicker.openPicker(this.fontColor, color => {
             this.fontColor = color
             e.target.style.backgroundColor = color
+            this.updateStyle()
         }, '选择文字颜色')
     }
 
@@ -50,11 +58,31 @@ export default class {
         // 设置新值
         this[key] = value ? value : !this[key]
 
+        this.updateStyle()
+
     }
 
-    // 输入控制
+    updateStyle() {
+        if (this.curEl == null) return
+
+        xhtml.setStyles(this.curEl, {
+            "font-weight": this.fontWeight ? 800 : 400, // 是否加粗
+            "font-style": this.fontItalic ? "italic" : "normal",// 是否斜体
+            "text-decoration": this.underline ? "underline" : this.lineThrough ? "line-through" : "auto", // 是否有下划线、中划线
+            "text-align": this.fontAlign, // 文字水平对齐方式
+            "color": this.fontColor, // 文字颜色
+            "font-size": this.fontSize + "px", // 文字大小
+            "font-family": this.fontFamily, // 文字字体
+        })
+    }
+
+    // 监听输入事件
     doInput(e) {
-        let el = e.target
+
+        // let el = e.target
+        // console.log(getCaretPosition(el))
+
+        this.curEl = isElement((window.getSelection().anchorNode)) ? window.getSelection().anchorNode : window.getSelection().anchorNode.parentNode
 
     }
 

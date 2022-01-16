@@ -7,9 +7,9 @@
             Open Web Word
         </a>
 
-        <span class="line"></span>
+        <!-- <span class="line"></span> -->
 
-        <span class='btn format'>格式刷</span>
+        <!-- <span class='btn format'>格式刷</span> -->
 
         <span class="line"></span>
 
@@ -38,23 +38,25 @@
         </span>
         <span class="btn input">
             <!-- 大小 -->
-            <input type="text" ui-model='fontSize'>
+            <input type="text" ui-model='fontSize' ui-on:keyup='updateStyle'>
         </span>
         <span class="btn input">
             <!-- 字体 -->
-            <input type="text" ui-model='fontFamily'>
+            <input type="text" ui-model='fontFamily' ui-on:keyup='updateStyle'>
         </span>
 
-        <span class="line"></span>
+        <!-- <span class="line"></span> -->
 
-        <span class="btn img">图片</span>
-        <span class="btn link">跳转</span>
+        <!-- <span class="btn img">图片</span> -->
+        <!-- <span class="btn link">跳转</span> -->
 
     </div>
 
     <!-- 内容区域 -->
     <div class="content">
-        <div contenteditable="true" ui-on:keydown='doInput'></div>
+        <div contenteditable="true" ui-on:keyup='doInput'>
+            <div><br /></div>
+        </div>
     </div>
 
 </div>
