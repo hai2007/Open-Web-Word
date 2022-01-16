@@ -95,7 +95,7 @@ export default class {
             this.lineThrough = /line\-through/.test(xhtml.getStyle(this.curEl, 'text-decoration'))
             this.fontAlign = xhtml.getStyle(this.curEl, 'text-align')
             this.fontColor = xhtml.getStyle(this.curEl, 'color')
-            this.fontSize = xhtml.getStyle(this.curEl, 'font-size')
+            this.fontSize = xhtml.getStyle(this.curEl, 'font-size').replace('px', '')
             this.fontFamily = xhtml.getStyle(this.curEl, 'font-family')
         }
 

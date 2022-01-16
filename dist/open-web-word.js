@@ -4,12 +4,12 @@
  *
  * author 你好2007 < https://hai2007.gitee.io/sweethome >
  *
- * version 0.2.4
+ * version 0.2.5
  *
  * Copyright (c) 2021-2022 hai2007 走一步，再走一步。
  * Released under the MIT license
  *
- * Date:Sun Jan 16 2022 18:21:25 GMT+0800 (GMT+08:00)
+ * Date:Sun Jan 16 2022 18:39:10 GMT+0800 (GMT+08:00)
  */
 /******/
 /******/  // EtcPack Bootstrap/******/  
@@ -2966,7 +2966,7 @@ var _class = (_dec = Component({
         this.lineThrough = /line\-through/.test(xhtml.getStyle(this.curEl, 'text-decoration'));
         this.fontAlign = xhtml.getStyle(this.curEl, 'text-align');
         this.fontColor = xhtml.getStyle(this.curEl, 'color');
-        this.fontSize = xhtml.getStyle(this.curEl, 'font-size');
+        this.fontSize = xhtml.getStyle(this.curEl, 'font-size').replace('px', '');
         this.fontFamily = xhtml.getStyle(this.curEl, 'font-family');
       } // 否则，还没设置过
       else {

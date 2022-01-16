@@ -1,6 +1,6 @@
 {
   "name": "open-web-word",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "✍️ Web version of the extensible text editor.",
   "main": "dist/open-web-word.min.js",
   "scripts": {
