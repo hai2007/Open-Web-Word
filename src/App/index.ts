@@ -124,7 +124,7 @@ export default class {
 
         // 文件加载完毕
         reader.onload = () => {
-            editorEl.innerHTML = editorEl.innerHTML.substring(0, this.curIndex) + "<img width='100%' src='" + reader.result + "' />" + editorEl.innerHTML.substring(this.curIndex)
+            editorEl.innerHTML = editorEl.innerHTML.substring(0, this.curIndex) + "<img src='" + reader.result + "' />" + editorEl.innerHTML.substring(this.curIndex)
         }
 
         // 作为base64地址读取
