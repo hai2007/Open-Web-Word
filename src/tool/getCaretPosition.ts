@@ -17,5 +17,5 @@ export default function (node) {
 
     caretPosition = tmp.innerHTML.length
 
-    return caretPosition
+    return caretPosition - 6
 }

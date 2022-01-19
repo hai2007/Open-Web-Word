@@ -45,16 +45,19 @@
             <input type="text" ui-model='fontFamily' ui-on:keyup='updateStyle'>
         </span>
 
-        <!-- <span class="line"></span> -->
+        <span class="line"></span>
 
-        <!-- <span class="btn img">图片</span> -->
+        <label class="btn img" ui-bind:for='"oww-img"+uniqueid'>
+            图片
+            <input type="file" ui-bind:id='"oww-img"+uniqueid' class='none' ui-on:change="insertImg" accept="image/*" />
+        </label>
         <!-- <span class="btn link">跳转</span> -->
 
     </div>
 
     <!-- 内容区域 -->
     <div class="content">
-        <div contenteditable="true" ui-on:keyup="updateCurEl" ui-on:click="updateCurEl">
+        <div contenteditable="true" ui-on:keyup="updateCurEl" ui-on:click="updateCurEl" ui-bind:id='"oww-"+uniqueid'>
             <div><br /></div>
         </div>
     </div>

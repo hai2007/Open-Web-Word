@@ -4,6 +4,8 @@ import ColorsPicker from 'colors-picker'
 import { isElement } from '@hai2007/tool/type'
 import xhtml from '@hai2007/browser/xhtml'
 
+import getCaretPosition from '../tool/getCaretPosition'
+
 import style from './index.scss'
 import template from './index.html'
 
@@ -24,6 +26,9 @@ export default class {
     fontFamily: string // 文字字体
 
     curEl: any
+    curIndex: any
+
+    uniqueid: any
 
     $setup() {
         return {
@@ -35,7 +40,9 @@ export default class {
             fontColor: ref('#000'),
             fontSize: ref(14),
             fontFamily: ref('serif'),
-            curEl: ref(null)
+            curEl: ref(null),
+            curIndex: ref(0),
+            uniqueid: ref(Math.random())
         }
     }
 
@@ -79,8 +86,10 @@ export default class {
         })
     }
 
-    // 修改地区光标控制的内容
-    updateCurEl() {
+    // 修改光标控制的内容
+    updateCurEl(e) {
+
+        this.curIndex = getCaretPosition(e.target)
 
         let _curEl = isElement((window.getSelection().anchorNode)) ? window.getSelection().anchorNode : window.getSelection().anchorNode.parentNode
         if (_curEl == this.curEl) return
@@ -103,6 +112,23 @@ export default class {
         else {
             this.updateStyle()
         }
+
+    }
+
+    // 插入图片
+    insertImg(e) {
+
+        let file = e.target.files[0]
+        let reader = new FileReader()
+        let editorEl = document.getElementById("oww-" + this.uniqueid)
+
+        // 文件加载完毕
+        reader.onload = () => {
+            editorEl.innerHTML = editorEl.innerHTML.substring(0, this.curIndex) + "<img width='100%' src='" + reader.result + "' />" + editorEl.innerHTML.substring(this.curIndex)
+        }
+
+        // 作为base64地址读取
+        reader.readAsDataURL(file)
 
     }
 

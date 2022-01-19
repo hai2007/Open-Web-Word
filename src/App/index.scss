@@ -27,11 +27,16 @@
                 }
             }
 
+            &>label,
             &>span {
                 height: 30px;
                 line-height: 30px;
                 display: inline-block;
                 vertical-align: top;
+
+                &>.none {
+                    display: none;
+                }
 
                 &.line {
                     width: 1px;
@@ -126,7 +131,7 @@
                 min-height: calc(100% - 100px);
                 margin: 50px auto;
                 background-color: white;
-                padding:50px;
+                padding: 50px;
                 outline: none;
                 line-height: 1.2em;
             }
