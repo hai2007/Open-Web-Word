@@ -30,6 +30,12 @@ export default class {
 
     uniqueid: any
 
+    dialogName: string
+
+    // 插入链接
+    dialogLinkUrl: string
+    dialogLinkName: string
+
     $setup() {
         return {
             fontWeight: ref(false),
@@ -42,8 +48,16 @@ export default class {
             fontFamily: ref('serif'),
             curEl: ref(null),
             curIndex: ref(0),
-            uniqueid: ref(Math.random())
+            uniqueid: ref(Math.random()),
+            dialogName: ref(''),
+            dialogLinkUrl: ref(''),
+            dialogLinkName: ref('')
         }
+    }
+
+    // 关闭弹框
+    closeDialog() {
+        this.dialogName = ''
     }
 
     // 选择颜色
@@ -130,6 +144,20 @@ export default class {
         // 作为base64地址读取
         reader.readAsDataURL(file)
 
+    }
+
+
+    openDialog(e) {
+        this.dialogName = e.target.getAttribute('name')
+    }
+
+    // 插入链接
+    addLink() {
+        let editorEl = document.getElementById("oww-" + this.uniqueid)
+        editorEl.innerHTML = editorEl.innerHTML.substring(0, this.curIndex) + "<a contenteditable='false' target='_blank' href='" + this.dialogLinkUrl + "' />" + this.dialogLinkName + "</a>" + editorEl.innerHTML.substring(this.curIndex)
+        this.dialogLinkName = ""
+        this.dialogLinkUrl = ""
+        this.closeDialog()
     }
 
 }

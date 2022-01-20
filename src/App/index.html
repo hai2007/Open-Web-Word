@@ -51,7 +51,7 @@
             图片
             <input type="file" ui-bind:id='"oww-img"+uniqueid' class='none' ui-on:change="insertImg" accept="image/*" />
         </label>
-        <!-- <span class="btn link">跳转</span> -->
+        <span class="btn link" ui-on:click='openDialog' name='link'>跳转</span>
 
     </div>
 
@@ -60,6 +60,28 @@
         <div contenteditable="true" ui-on:keyup="updateCurEl" ui-on:click="updateCurEl" ui-bind:id='"oww-"+uniqueid'>
             <div><br /></div>
         </div>
+    </div>
+
+    <!-- 弹框区域 -->
+    <div class="dialog" ui-bind:show='dialogName!=""?"yes":"no"'>
+
+        <!-- 插入链接 -->
+        <div class="link" ui-bind:show='dialogName=="link"?"yes":"no"'>
+            <h2>插入链接</h2>
+            <div>
+                <span>名称：</span>
+                <input type="text" ui-model='dialogLinkName' />
+            </div>
+            <div>
+                <span>地址：</span>
+                <input type="text" ui-model='dialogLinkUrl' />
+            </div>
+            <div>
+                <button ui-on:click='closeDialog'>取消</button>
+                <button ui-on:click='addLink'>确定</button>
+            </div>
+        </div>
+
     </div>
 
 </div>

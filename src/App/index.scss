@@ -136,5 +136,67 @@
                 line-height: 1.2em;
             }
         }
+
+        &.dialog {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            background-color: rgba(167, 165, 165, 0.774);
+
+            &>div {
+                width: 300px;
+                left: calc(50vw - 150px);
+                top: 100px;
+                text-align: center;
+                position: fixed;
+
+                &.link {
+                    background-color: white;
+                    padding: 10px 0;
+
+                    &>h2 {
+                        line-height: 2em;
+                        font-size: 20px;
+                        margin-bottom: 10px;
+                        user-select: none;
+                    }
+
+                    &>div {
+                        margin-bottom: 20px;
+
+                        &>span {
+                            font-size: 14px;
+                        }
+
+                        &>input {
+                            outline: none;
+                        }
+
+                        &>button {
+                            margin: 0 10px;
+                            outline: none;
+                            border: none;
+                            padding: 5px 20px;
+                            background-color: rgb(15, 179, 201);
+                            color: white;
+                            border-radius: 5px;
+                            cursor: pointer;
+
+                            &:first-child {
+                                background-color: #bdb6b6;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    // 同意的控制一些东西的显示和隐藏
+    [show='no'] {
+        display: none;
     }
 }

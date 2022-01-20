@@ -1,6 +1,9 @@
 // 获取包含HTML内容的contentEditable区域中的插入符（光标）位置
 
 export default function (node) {
+
+    if (node.innerText.trim() == '') return 0
+
     let range = window.getSelection().getRangeAt(0),
 
         preCaretRange = range.cloneRange(),

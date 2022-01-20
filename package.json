@@ -1,6 +1,6 @@
 {
   "name": "open-web-word",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "✍️ Web version of the extensible text editor.",
   "main": "dist/open-web-word.min.js",
   "scripts": {
@@ -28,7 +28,7 @@
     "@hai2007/polyfill": "^0.2.0",
     "@hai2007/style": "^0.3.0",
     "@hai2007/tool": "^1.1.0",
-    "colors-picker": "^0.3.1",
+    "colors-picker": "^0.3.2",
     "nefbl": "^0.2.6",
     "sprout-ui": "^0.2.2"
   },
