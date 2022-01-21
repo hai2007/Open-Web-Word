@@ -47,7 +47,7 @@ export default class {
             fontSize: ref(14),
             fontFamily: ref('serif'),
             curEl: ref(null),
-            curIndex: ref(0),
+            curIndex: ref(null),
             uniqueid: ref(Math.random()),
             dialogName: ref(''),
             dialogLinkUrl: ref(''),
@@ -129,16 +129,22 @@ export default class {
 
     }
 
+    // 插入
+    insert(template) {
+        let editorEl = document.getElementById("oww-" + this.uniqueid)
+        let curIndex = this.curIndex == null ? getCaretPosition(editorEl) : this.curIndex
+        editorEl.innerHTML = editorEl.innerHTML.substring(0, curIndex) + template + editorEl.innerHTML.substring(curIndex)
+    }
+
     // 插入图片
     insertImg(e) {
 
         let file = e.target.files[0]
         let reader = new FileReader()
-        let editorEl = document.getElementById("oww-" + this.uniqueid)
 
         // 文件加载完毕
         reader.onload = () => {
-            editorEl.innerHTML = editorEl.innerHTML.substring(0, this.curIndex) + "<img src='" + reader.result + "' />" + editorEl.innerHTML.substring(this.curIndex)
+            this.insert("<img src='" + reader.result + "' />")
         }
 
         // 作为base64地址读取
@@ -152,9 +158,8 @@ export default class {
     }
 
     // 插入链接
-    addLink() {
-        let editorEl = document.getElementById("oww-" + this.uniqueid)
-        editorEl.innerHTML = editorEl.innerHTML.substring(0, this.curIndex) + "<a contenteditable='false' target='_blank' href='" + this.dialogLinkUrl + "' />" + this.dialogLinkName + "</a>" + editorEl.innerHTML.substring(this.curIndex)
+    insertLink() {
+        this.insert("<a contenteditable='false' target='_blank' href='" + this.dialogLinkUrl + "' />" + this.dialogLinkName + "</a>")
         this.dialogLinkName = ""
         this.dialogLinkUrl = ""
         this.closeDialog()

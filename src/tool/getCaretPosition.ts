@@ -2,7 +2,9 @@
 
 export default function (node) {
 
-    if (node.innerText.trim() == '') return 0
+    if (node.innerText.trim() == '') {
+        return node.innerHTML.length - 6
+    }
 
     let range = window.getSelection().getRangeAt(0),
 
