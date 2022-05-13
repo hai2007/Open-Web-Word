@@ -46,12 +46,32 @@ npm install --save open-web-word
 ```js
 import OpenWebWord from 'open-web-word';
 
-var oww = new OpenWebWord({
+new OpenWebWord({
 
     // 编辑器挂载点(必选)
     el: document.getElementById('oww')
 
+}).then(oww => {
+
+    // todo
+
 });
+```
+
+返回的oww里面挂载着后续可控方法：
+
+- 获取或设置内容
+
+```js
+// 如果content传递了，就是设置内容
+oww.valueOf([content]);
+```
+
+- 获取或设置html
+
+```js
+// 如果content传递了，就是设置html
+oww.template([content]);
 ```
 
 开源协议

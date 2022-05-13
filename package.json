@@ -1,6 +1,6 @@
 {
   "name": "open-web-word",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "✍️ Web version of the extensible text editor.",
   "main": "dist/open-web-word.min.js",
   "scripts": {
@@ -23,11 +23,10 @@
   },
   "homepage": "https://github.com/hai2007/Open-Web-Word#readme",
   "dependencies": {
-    "@hai2007/algorithm": "^0.7.3",
-    "@hai2007/browser": "^0.2.0",
-    "@hai2007/polyfill": "^0.2.0",
+    "@hai2007/algorithm": "^0.7.6",
+    "@hai2007/browser": "^0.3.5",
     "@hai2007/style": "^0.3.0",
-    "@hai2007/tool": "^1.1.0",
+    "@hai2007/tool": "^1.2.0",
     "colors-picker": "^0.3.2",
     "nefbl": "^0.2.6",
     "sprout-ui": "^0.2.2"
@@ -40,10 +39,11 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-typescript": "^7.16.0",
     "@etcpack/commonjs-plug": "^0.1.0",
+    "@etcpack/css-loader": "^0.1.0",
     "@etcpack/plain-loader": "^0.1.0",
     "@etcpack/scss-loader": "^0.1.2",
-    "@hai2007/nodejs": "^2.2.0",
-    "etcpack": "^0.5.4",
+    "@hai2007/nodejs": "^3.0.1",
+    "etcpack": "^0.10.0",
     "tslib": "^2.3.1",
     "uglify-js": "^3.11.6"
   }

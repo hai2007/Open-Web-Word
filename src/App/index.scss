@@ -7,7 +7,7 @@
             height: 30px;
 
             &>.logo {
-                background-image: url('./image/logo.png');
+                background-image: url('../../image/logo.png');
                 padding-left: 30px;
                 padding-right: 10px;
                 height: 30px;
@@ -56,35 +56,35 @@
                     }
 
                     &.format {
-                        background-image: url('./image/format.png');
+                        background-image: url('../../image/format.png');
                     }
 
                     &.weight {
-                        background-image: url('./image/weight.png');
+                        background-image: url('../../image/weight.png');
                     }
 
                     &.italic {
-                        background-image: url('./image/italic.png');
+                        background-image: url('../../image/italic.png');
                     }
 
                     &.underline {
-                        background-image: url('./image/underline.png');
+                        background-image: url('../../image/underline.png');
                     }
 
                     &.line-through {
-                        background-image: url('./image/line-through.png');
+                        background-image: url('../../image/line-through.png');
                     }
 
                     &.left {
-                        background-image: url('./image/left.png');
+                        background-image: url('../../image/left.png');
                     }
 
                     &.center {
-                        background-image: url('./image/center.png');
+                        background-image: url('../../image/center.png');
                     }
 
                     &.right {
-                        background-image: url('./image/right.png');
+                        background-image: url('../../image/right.png');
                     }
 
                     &.color {
@@ -99,11 +99,11 @@
                     }
 
                     &.img {
-                        background-image: url('./image/img.png');
+                        background-image: url('../../image/img.png');
                     }
 
                     &.link {
-                        background-image: url('./image/link.png');
+                        background-image: url('../../image/link.png');
                     }
 
                     &.input {
@@ -143,6 +143,7 @@
             height: 100vh;
             left: 0;
             top: 0;
+            display: none;
             background-color: rgba(167, 165, 165, 0.774);
 
             &>div {
@@ -197,6 +198,10 @@
 
     // 统一的控制一些东西的显示和隐藏
     [show='no'] {
-        display: none;
+        display: none !important;
+    }
+
+    [show='yes'] {
+        display: inline-block !important;
     }
 }

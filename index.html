@@ -66,7 +66,62 @@
             // 启动
             new OpenWebWord({
                 el: document.getElementById('root')
+            }).then(function (oww) {
+                window.oww = oww
+
+                oww.valueOf({
+                    version: "1.0.0",
+                    content: [
+                        {
+                            "style": {
+                                "font-weight": "800",
+                                "font-style": "normal",
+                                "text-decoration-line": "none",
+                                "text-decoration-thickness": "initial",
+                                "text-decoration-style": "initial",
+                                "text-decoration-color": "initial",
+                                "text-align": "center",
+                                "color": "rgb(0, 0, 0)",
+                                "font-size": "30px",
+                                "font-family": "serif",
+                                "line-height": "2em"
+                            },
+                            "content": ["Open Web Word"]
+                        }, {
+                            "style": {
+                                "font-weight": "400",
+                                "font-style": "normal",
+                                "text-decoration-line": "initial",
+                                "text-decoration-thickness": "auto",
+                                "text-decoration-style": "initial",
+                                "text-decoration-color": "initial",
+                                "text-align": "left",
+                                "color": "rgb(0, 0, 0)",
+                                "font-size": "14px",
+                                "font-family": "serif",
+                                "line-height": "2em"
+                            },
+                            "content": [
+                                "使用的时候遇到任何问题都可以",
+                                {
+                                    "style": {
+                                        "text-decoration": "underline",
+                                        "padding": "0 5px",
+                                        "color": "blue"
+                                    },
+                                    "tagName": "A",
+                                    "attr": {
+                                        "href": "https://github.com/hai2007/Open-Web-Word/issues",
+                                        "target": "_blank",
+                                        "contenteditable": "false"
+                                    },
+                                    "content": "点击此处"
+                                }, "告诉我们!"]
+                        }]
+                })
+
             });
+
 
         }, false);
 

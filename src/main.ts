@@ -1,9 +1,6 @@
 import { platform } from 'nefbl'
 import style from "./style.scss"
 
-// 兼容文件
-import '@hai2007/polyfill/Promise.js'
-
 // 引入主模块
 import appModule from "./app.module"
 

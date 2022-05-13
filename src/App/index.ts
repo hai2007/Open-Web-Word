@@ -24,6 +24,7 @@ export default class {
     fontColor: string // 文字颜色
     fontSize: number // 文字大小
     fontFamily: string // 文字字体
+    lineHeight: string // 行高
 
     curEl: any
     curIndex: any
@@ -46,6 +47,7 @@ export default class {
             fontColor: ref('#000'),
             fontSize: ref(14),
             fontFamily: ref('serif'),
+            lineHeight: ref('2em'),
             curEl: ref(null),
             curIndex: ref(null),
             uniqueid: ref(Math.random()),
@@ -87,7 +89,7 @@ export default class {
         if (this.curEl == null) return
 
         // 标记已经有自己的样式
-        this.curEl._oww_updateStyle = true
+        this.curEl.setAttribute('_oww_updateStyle_', 'yes')
 
         xhtml.setStyles(this.curEl, {
             "font-weight": this.fontWeight ? 800 : 400, // 是否加粗
@@ -97,6 +99,7 @@ export default class {
             "color": this.fontColor, // 文字颜色
             "font-size": this.fontSize + "px", // 文字大小
             "font-family": this.fontFamily, // 文字字体
+            "line-height": "2em", // 行高 
         })
     }
 
@@ -111,7 +114,7 @@ export default class {
         this.curEl = _curEl
 
         // 如果设置过了，应该同步显示出来
-        if (this.curEl._oww_updateStyle) {
+        if (this.curEl.getAttribute('_oww_updateStyle_') == 'yes') {
             this.fontWeight = xhtml.getStyle(this.curEl, 'font-weight') == 800
             this.fontItalic = xhtml.getStyle(this.curEl, 'font-style') == "italic"
             this.underline = /underline/.test(xhtml.getStyle(this.curEl, 'text-decoration'))
@@ -120,6 +123,7 @@ export default class {
             this.fontColor = xhtml.getStyle(this.curEl, 'color')
             this.fontSize = xhtml.getStyle(this.curEl, 'font-size').replace('px', '')
             this.fontFamily = xhtml.getStyle(this.curEl, 'font-family')
+            this.lineHeight = xhtml.getStyle(this.curEl, 'line-height')
         }
 
         // 否则，还没设置过
@@ -159,7 +163,7 @@ export default class {
 
     // 插入链接
     insertLink() {
-        this.insert("<a contenteditable='false' target='_blank' href='" + this.dialogLinkUrl + "' />" + this.dialogLinkName + "</a>")
+        this.insert("<a contenteditable='false' style='text-decoration: underline;padding: 0 5px;color: blue;' target='_blank' href='" + this.dialogLinkUrl + "' />" + this.dialogLinkName + "</a>")
         this.dialogLinkName = ""
         this.dialogLinkUrl = ""
         this.closeDialog()
